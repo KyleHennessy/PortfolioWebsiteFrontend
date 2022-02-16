@@ -1,14 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
+import {Route, Switch} from "react-router-dom";
 
-import Projects from "./components/Projects/Projects";
+import Layout from './components/Layout/Layout';
+
+import AllProjectsPage from "./pages/AllProjects";
+import AboutMePage from "./pages/AboutMe";
 
 function App(){
     return(
-        <React.Fragment>
-            <main>
-                <Projects />
-            </main>
-        </React.Fragment>
+        <Layout>
+            <Switch>
+                <Route path="/" exact>
+                    <AllProjectsPage/>
+                </Route>
+                <Route path="/about-me">
+                    <AboutMePage/>
+                </Route>
+            </Switch>
+        </Layout>
     );
 }
 
