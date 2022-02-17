@@ -9,14 +9,16 @@ import AboutMePage from "./pages/About";
 function App(){
     return(
         <Layout>
-            <Switch>
+            {/* <Switch>
                 <Route path="/" exact>
                     <AllProjectsPage/>
                 </Route>
                 <Route path="/about-me">
                     <AboutMePage/>
                 </Route>
-            </Switch>
+            </Switch> */}
+            <AboutMePage/>
+            <AllProjectsPage/>
         </Layout>
     );
 }
