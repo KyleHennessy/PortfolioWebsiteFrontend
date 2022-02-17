@@ -4,7 +4,7 @@ import {Route, Switch} from "react-router-dom";
 import Layout from './components/Layout/Layout';
 
 import AllProjectsPage from "./pages/AllProjects";
-import AboutMePage from "./pages/AboutMe";
+import AboutMePage from "./pages/About";
 
 function App(){
     return(
