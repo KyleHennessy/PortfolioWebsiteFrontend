@@ -1,6 +1,6 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
 
-const AboutMePage = () => {
+const About = () => {
   return (
     <section id="about">
       <Container>
@@ -39,4 +39,4 @@ const AboutMePage = () => {
   );
 };
 
-export default AboutMePage;
+export default About;

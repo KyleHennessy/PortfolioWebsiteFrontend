@@ -3,8 +3,9 @@ import {Route, Switch} from "react-router-dom";
 
 import Layout from './components/Layout/Layout';
 
-import AllProjectsPage from "./pages/AllProjects";
-import AboutMePage from "./pages/About";
+import AllProjects from "./components/Sections/AllProjects";
+import About from "./components/Sections/About";
+import Skills from "./components/Sections/Skills";
 
 function App(){
     return(
@@ -17,8 +18,9 @@ function App(){
                     <AboutMePage/>
                 </Route>
             </Switch> */}
-            <AboutMePage/>
-            <AllProjectsPage/>
+            <About/>
+            <AllProjects/>
+            <Skills/>
         </Layout>
     );
 }

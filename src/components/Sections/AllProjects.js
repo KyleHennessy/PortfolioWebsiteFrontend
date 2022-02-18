@@ -1,6 +1,6 @@
-import ProjectsList from "../components/Projects/ProjectsList";
+import ProjectsList from "../Projects/ProjectsList";
 
-const AllProjectsPage = () => {
+const AllProjects = () => {
     const DUMMY_PROJECTS = [
       {
         id: "m1",
@@ -26,9 +26,11 @@ const AllProjectsPage = () => {
     return (
         <section>
             <h1>All Projects Page</h1>
+            <p>Here is all of the projects that I have worked on either in my spare time
+              <br/>Or as part of my education</p>
             <ProjectsList projects={DUMMY_PROJECTS}/>
         </section>
     )
 };
 
-export default AllProjectsPage;
+export default AllProjects;
