@@ -24,7 +24,7 @@ const AllProjects = () => {
     ];
 
     return (
-        <section>
+        <section id="projects">
             <h1>All Projects Page</h1>
             <p>Here is all of the projects that I have worked on either in my spare time
               <br/>Or as part of my education</p>

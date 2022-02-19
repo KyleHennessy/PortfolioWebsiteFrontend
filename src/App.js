@@ -6,6 +6,7 @@ import Layout from './components/Layout/Layout';
 import AllProjects from "./components/Sections/AllProjects";
 import About from "./components/Sections/About";
 import Skills from "./components/Sections/Skills";
+import WorkExperiences from "./components/Sections/WorkExperiences";
 
 function App(){
     return(
@@ -21,6 +22,8 @@ function App(){
             <About/>
             <AllProjects/>
             <Skills/>
+            <WorkExperiences/>
+
         </Layout>
     );
 }
