@@ -4,9 +4,8 @@ import WorkExperienceItem from "./WorkExperienceItem/WorkExperienceItem";
 const WorkExperienceList = (props) => {
   return (
     <Container>
-      {/* {console.log(props)} */}
       <Row xs={1} md={2} className="g-4">
-        {props.workExperiences.map((workExperience) => (
+        {props.workExperiences.slice(0).reverse().map((workExperience) => (
           <Col xs key={workExperience.id}>
             <WorkExperienceItem
               key={workExperience.id}

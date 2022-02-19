@@ -24,3 +24,7 @@ h2 {
   height: 200px;
   width: 200px;
 }
+
+.card{
+  min-height: 100%;
+}

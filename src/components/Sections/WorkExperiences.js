@@ -23,8 +23,8 @@ const WorkExperiences = () => {
   ];
   return (
     <section id="work-experience">
-      {/* <Container className="px-5 py-10 mx-auto"> */}
-      {/* <div className="text-center">
+      <Container className="px-5 py-10 mx-auto">
+        <div className="text-center">
           <MdWork className="w-10 inline-block mb-4 cap" />
 
           <h1 className="sm:text-4xl text-3xl font-medium title-font mb-4">
@@ -35,18 +35,17 @@ const WorkExperiences = () => {
             ipsa delectus eum quo voluptas aspernatur accusantium distinctio
             possimus est.
           </p>
-        </div> */}
-
-      {/* </Container> */}
+          <WorkExperienceList workExperiences={DUMMY_JOBS} />
+        </div>
+      </Container>
       {/* {console.log(DUMMY_JOBS)} */}
-      <h1>All Work Experiences</h1>
+      {/* <h1>All Work Experiences</h1>
       <p>
         Here is all of the projects that I have worked on either in my spare
         time
         <br />
         Or as part of my education
-      </p>
-      <WorkExperienceList workExperiences={DUMMY_JOBS} />
+      </p> */}
     </section>
   );
 };
