@@ -7,6 +7,7 @@ import AllProjects from "./components/Sections/AllProjects";
 import About from "./components/Sections/About";
 import Skills from "./components/Sections/Skills";
 import WorkExperiences from "./components/Sections/WorkExperiences";
+import Contact from "./components/Sections/Contact";
 
 function App(){
     return(
@@ -23,6 +24,7 @@ function App(){
             <AllProjects/>
             <Skills/>
             <WorkExperiences/>
+            <Contact/>
 
         </Layout>
     );
