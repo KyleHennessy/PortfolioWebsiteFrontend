@@ -40,9 +40,7 @@ const Skills = () => {
             Skills
           </h1>
           <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi sit
-            ipsa delectus eum quo voluptas aspernatur accusantium distinctio
-            possimus est.
+            These are the skills and technologies that I have actively used in the past. I am always open to learning more to open my mind and expand my skillset.
           </p>
         </div>
         <SkillsList skills={DUMMY_SKILLS} />

@@ -6,14 +6,13 @@ const About = () => {
       <Container>
         <Row>
           <Col>
-            <h1>
-              Hi, my name is Kyle!
-              <br />I love building applications and software.
-            </h1>
+            <h1>Hi, my name is Kyle and I am a Software Engineer!</h1>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui
-              laborum quasi, incidunt dolore iste nostrum cupiditate voluptas?
-              Laborum, voluptas natus?
+              I developed this website from scratch using React and .NET Core to
+              showcase my experience and skills as a Software Engineer! <br />
+              I have a great interest in technology in general and am always
+              open to new experiences. <br />
+              Feel free to have a look around to learn more about me!
             </p>
             <div className="aboutme-links">
               <Button variant="success">Contact Me</Button>
@@ -32,8 +31,6 @@ const About = () => {
             </div>
           </Col>
         </Row>
-        
-      
       </Container>
     </section>
   );

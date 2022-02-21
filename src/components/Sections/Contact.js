@@ -11,48 +11,49 @@ const Contact = () => {
             Contact Details
           </h1>
           <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
-            If you are interested in contacting me about any potential roles, or
-            if you would like to question me more about my background, feel free
-            to contact me through any of the methods below.
+            Did anything here be of particular interest to you?
+            <br />
+            If so, don't be shy to contact me to discuss anything in further
+            detail!
           </p>
         </div>
       </Container>
       <Container>
         <Row xs={1} md={2} className="g-4">
           <Col>
-            {/* <Card id="details">
-              <Card.Body> */}
             <div className="lg:w-1/2 px-6">
               <h2 className="title-font font-semibold tracking-widest text-xs">
-                ADDRESS
+                Address
               </h2>
               <p className="mt-1">
-                97 Warren St. <br />
-                New York, NY 10007
+                Graney <br />
+                Baltinglass
+                <br />
+                Co.Wicklow
               </p>
             </div>
             <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
               <h2 className="title-font font-semibold tracking-widest text-xs">
-                EMAIL
+                E-mail
               </h2>
               <a className="text-indigo-400 leading-relaxed">
-                reedbarger@email.com
+                kyle-hennessy@hotmail.com
               </a>
               <h2 className="title-font font-semibold tracking-widest text-xs mt-4">
-                PHONE
+                Phone
               </h2>
-              <p className="leading-relaxed">123-456-7890</p>
+              <p className="leading-relaxed">087-419-8486</p>
               <h2 className="title-font font-semibold tracking-widest text-xs mt-4">
-                SOCIALS
+                Socials
               </h2>
-              <a href="https://linkedin.com">
+              <a href="https://www.linkedin.com/in/kyle-hennessy-itcarlow/">
                 <img
                   src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
                   alt="Visit my Linkedin!"
                   className="social"
                 />
               </a>
-              <a href="https://linkedin.com">
+              <a href="https://github.com/KyleHennessy">
                 <img
                   src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
                   alt="Visit my GitHub!"
@@ -63,26 +64,31 @@ const Contact = () => {
           </Col>
           <Col>
             <h2 className="title-font font-semibold tracking-widest text-xs">
-              Send me a message
+              Get In Touch!
             </h2>
             <p className="">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum
-              suscipit officia aspernatur veritatis. Asperiores, aliquid?
+              If you would like to get in touch with me, feel free to reach out
+              to me on Linkedin or send me a message directly on my website and
+              I will get back to you as soon as possible!
             </p>
             <Form>
               <Form.Group className="mb-3" controlId="formName">
                 <Form.Label>Name</Form.Label>
-                <Form.Control type="text" placeholder="Enter name"/>
+                <Form.Control type="text" placeholder="Enter name" />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formEmail">
                 <Form.Label>Email</Form.Label>
-                <Form.Control type="email" placeholder="Enter email"/>
+                <Form.Control type="email" placeholder="Enter email" />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formMessage">
                 <Form.Label>Message</Form.Label>
-                <Form.Control as="textarea" placeholder="Leave a message here" style={{height: '100px'}}/>
+                <Form.Control
+                  as="textarea"
+                  placeholder="Leave a message here"
+                  style={{ height: "100px" }}
+                />
               </Form.Group>
             </Form>
           </Col>
