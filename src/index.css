@@ -25,6 +25,11 @@ h2 {
   width: 200px;
 }
 
+.social{
+  height:50px;
+  width:50px;
+}
+
 .card{
   min-height: 100%;
 }
