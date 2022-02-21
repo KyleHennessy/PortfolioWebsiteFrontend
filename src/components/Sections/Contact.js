@@ -55,7 +55,7 @@ const Contact = () => {
               </a>
               <a href="https://github.com/KyleHennessy">
                 <img
-                  src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+                  src="https://cdn-icons-png.flaticon.com/512/733/733553.png"
                   alt="Visit my GitHub!"
                   className="social"
                 />

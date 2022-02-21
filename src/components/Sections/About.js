@@ -24,7 +24,7 @@ const About = () => {
               <img
                 className="heroImage"
                 alt="hero"
-                src="https://imageio.forbes.com/blogs-images/forbestechcouncil/files/2019/01/canva-photo-editor-8-7.png?format=png&width=1200&fit=bounds"
+                src="https://cdn-icons-png.flaticon.com/512/1688/1688400.png"
                 length="400px"
                 width="400px"
               />
