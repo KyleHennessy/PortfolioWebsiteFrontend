@@ -1,4 +1,12 @@
-import { Card, Col, Container, Form, Row } from "react-bootstrap";
+import {
+  Col,
+  Container,
+  FloatingLabel,
+  Form,
+  OverlayTrigger,
+  Row,
+  Tooltip,
+} from "react-bootstrap";
 import { IoMdContact } from "react-icons/io";
 
 const Contact = () => {
@@ -36,7 +44,7 @@ const Contact = () => {
               <h2 className="title-font font-semibold tracking-widest text-xs">
                 E-mail
               </h2>
-              <a className="text-indigo-400 leading-relaxed">
+              <a className="text-indigo-400 leading-relaxed" href="mailto:kyle-hennessy@hotmail.com">
                 kyle-hennessy@hotmail.com
               </a>
               <h2 className="title-font font-semibold tracking-widest text-xs mt-4">
@@ -46,19 +54,35 @@ const Contact = () => {
               <h2 className="title-font font-semibold tracking-widest text-xs mt-4">
                 Socials
               </h2>
+
               <a href="https://www.linkedin.com/in/kyle-hennessy-itcarlow/">
-                <img
-                  src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
-                  alt="Visit my Linkedin!"
-                  className="social"
-                />
+                <OverlayTrigger
+                  trigger="hover"
+                  placement="bottom"
+                  delay={{ show: 10, hide: 0 }}
+                  overlay={<Tooltip>Visit my Linkedin!</Tooltip>}
+                >
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+                    alt="Visit my Linkedin!"
+                    className="social"
+                  />
+                </OverlayTrigger>
               </a>
+
               <a href="https://github.com/KyleHennessy">
-                <img
-                  src="https://cdn-icons-png.flaticon.com/512/733/733553.png"
-                  alt="Visit my GitHub!"
-                  className="social"
-                />
+                <OverlayTrigger
+                  trigger="hover"
+                  placement="bottom"
+                  delay={{ show: 10, hide: 0 }}
+                  overlay={<Tooltip>Visit my GitHub!</Tooltip>}
+                >
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/733/733553.png"
+                    alt="Visit my GitHub!"
+                    className="social"
+                  />
+                </OverlayTrigger>
               </a>
             </div>
           </Col>
@@ -73,28 +97,30 @@ const Contact = () => {
             </p>
             <Form>
               <Form.Group className="mb-3" controlId="formName">
-                <Form.Label>Name</Form.Label>
-                <Form.Control type="text" placeholder="Enter name" />
+                <FloatingLabel controlId="floatingName" label="Name">
+                  <Form.Control type="text" placeholder="Enter name" />
+                </FloatingLabel>
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formEmail">
-                <Form.Label>Email</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
+                <FloatingLabel controlId="floatingEmail" label="Email">
+                  <Form.Control type="email" placeholder="Enter email" />
+                </FloatingLabel>
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formMessage">
-                <Form.Label>Message</Form.Label>
-                <Form.Control
-                  as="textarea"
-                  placeholder="Leave a message here"
-                  style={{ height: "100px" }}
-                />
+                <FloatingLabel controlId="floatingMessage" label="Message">
+                  <Form.Control
+                    as="textarea"
+                    placeholder="Leave a message here"
+                    style={{ height: "120px" }}
+                  />
+                </FloatingLabel>
               </Form.Group>
             </Form>
           </Col>
         </Row>
       </Container>
-      <form></form>
     </section>
   );
 };
