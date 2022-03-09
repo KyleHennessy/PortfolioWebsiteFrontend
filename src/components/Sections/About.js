@@ -1,4 +1,7 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
+// import programming from "../../assets/programming.png";
+
+// const logo = require('../../assets/programm')
 
 const About = () => {
   return (
@@ -24,7 +27,7 @@ const About = () => {
               <img
                 className="heroImage"
                 alt="hero"
-                src="https://cdn-icons-png.flaticon.com/512/1688/1688400.png"
+                src={require('../../assets/programing.png')}
                 length="400px"
                 width="400px"
               />

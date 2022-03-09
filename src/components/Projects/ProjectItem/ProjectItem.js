@@ -1,12 +1,44 @@
+import { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
 import classes from "./ProjectItem.module.css";
 
 const ProjectItem = (props) => {
+  const [isGifShown, setIsGifShown] = useState(false);
+
+  const showGifHandler = () => {
+    setIsGifShown(true);
+  };
+  const hideGifHandler = () => {
+    setIsGifShown(false);
+  };
+
   return (
+    <a href="/" onMouseEnter={showGifHandler} onMouseLeave={hideGifHandler}>
       <Card className={classes.card}>
-        <Card.Img src={props.image} alt={props.title} />
+        {isGifShown && (
+          <Card.Img
+            className={classes.preview}
+            id={classes.preview}
+            alt="homer"
+            src={require("../../../assets/homer_lurking.gif")}
+          />
+        )}
+        {!isGifShown && (
+          <Card.Img
+            className={classes.cardImage}
+            src={props.image}
+            alt={props.title}
+          />
+        )}
+        {/* <Card.Img src={props.image} alt={props.title} /> */}
+        {/* <Card.Img
+            className={classes.preview}
+            id={classes.preview}
+            alt="homer"
+            src={require("../../../assets/homer_lurking.gif")}
+          /> */}
         <Card.Body>
           <Card.Title>{props.title}</Card.Title>
           <Card.Text>{props.description}</Card.Text>
@@ -15,6 +47,9 @@ const ProjectItem = (props) => {
           <Button variant="light">Learn more</Button>
         </Card.Footer>
       </Card>
+      {/* {!isGifShown && projectCard}
+      {isGifShown && gifCard} */}
+    </a>
   );
 };
 

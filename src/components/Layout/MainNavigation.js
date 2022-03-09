@@ -8,7 +8,7 @@ const MainNavigation = () =>{
         <nav>
             <ul>
                 <li>
-                    <Link to='/' exact>Home</Link>
+                    <Link to='/' >Home</Link>
                 </li>
                 <li>
                     <Link to='/about-me'>Projects</Link>
