@@ -32,13 +32,6 @@ const ProjectItem = (props) => {
             alt={props.title}
           />
         )}
-        {/* <Card.Img src={props.image} alt={props.title} /> */}
-        {/* <Card.Img
-            className={classes.preview}
-            id={classes.preview}
-            alt="homer"
-            src={require("../../../assets/homer_lurking.gif")}
-          /> */}
         <Card.Body>
           <Card.Title>{props.title}</Card.Title>
           <Card.Text>{props.description}</Card.Text>
@@ -47,8 +40,6 @@ const ProjectItem = (props) => {
           <Button variant="light">Learn more</Button>
         </Card.Footer>
       </Card>
-      {/* {!isGifShown && projectCard}
-      {isGifShown && gifCard} */}
     </a>
   );
 };

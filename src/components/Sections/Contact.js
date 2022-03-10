@@ -57,7 +57,7 @@ const Contact = () => {
 
               <a href="https://www.linkedin.com/in/kyle-hennessy-itcarlow/">
                 <OverlayTrigger
-                  trigger="hover focus"
+                  trigger={["hover", "focus"]}
                   placement="bottom"
                   delay={{ show: 10, hide: 0 }}
                   overlay={<Tooltip>Visit my Linkedin!</Tooltip>}
@@ -72,7 +72,7 @@ const Contact = () => {
 
               <a href="https://github.com/KyleHennessy">
                 <OverlayTrigger
-                  trigger="hover focus"
+                  trigger={["hover", "focus"]}
                   placement="bottom"
                   delay={{ show: 10, hide: 0 }}
                   overlay={<Tooltip>Visit my GitHub!</Tooltip>}
