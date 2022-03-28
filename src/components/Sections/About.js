@@ -18,7 +18,7 @@ const About = () => {
               Feel free to have a look around to learn more about me!
             </p>
             <div className="aboutme-links">
-              <Button variant="success">Contact Me</Button>
+              <Button variant="success">Contact Me</Button> &nbsp; &nbsp;
               <Button variant="success">My Work</Button>
             </div>
           </Col>
@@ -27,7 +27,7 @@ const About = () => {
               <img
                 className="heroImage"
                 alt="hero"
-                src={require('../../assets/programing.png')}
+                src={require("../../assets/programing.png")}
                 length="400px"
                 width="400px"
               />

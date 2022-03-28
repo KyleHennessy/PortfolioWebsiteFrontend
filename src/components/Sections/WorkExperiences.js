@@ -9,7 +9,8 @@ const WorkExperiences = () => {
       title: "Software Developer Intern",
       description:
         "My first job as a software developer in the industry. I worked with .NET Framework",
-      dateStarted: new Date("2020-03-01"),
+      dateStarted: "2020-03-01",
+      dateEnded: "2020-09-01",
       currentJob: false,
     },
     {
@@ -17,7 +18,8 @@ const WorkExperiences = () => {
       title: "Junior Software Developer",
       description:
         "I started this job directly after college as a graduate developer, but they were very happy with my performance and I was promoted to a junior developer after 6 months",
-      dateStarted: new Date("2021-06-01"),
+      dateStarted: "2021-06-01",
+      dateEnded: null,
       currentJob: true,
     },
   ];
@@ -31,7 +33,8 @@ const WorkExperiences = () => {
             Work Experience
           </h1>
           <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
-            Here is all of my previous and current work experience as a Software Developer!
+            Here is all of my previous and current work experience as a Software
+            Developer!
           </p>
           <WorkExperienceList workExperiences={DUMMY_JOBS} />
         </div>
