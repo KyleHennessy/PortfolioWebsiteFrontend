@@ -1,7 +1,7 @@
 import React from "react";
-import {Route, Switch} from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
-import Layout from './components/Layout/Layout';
+import Layout from "./components/Layout/Layout";
 
 import AllProjects from "./components/Sections/AllProjects";
 import About from "./components/Sections/About";
@@ -9,10 +9,11 @@ import Skills from "./components/Sections/Skills";
 import WorkExperiences from "./components/Sections/WorkExperiences";
 import Contact from "./components/Sections/Contact";
 
-function App(){
-    return(
-        <Layout>
-            {/* <Switch>
+
+function App() {
+  return (
+    <Layout>
+      {/* <Switch>
                 <Route path="/" exact>
                     <AllProjectsPage/>
                 </Route>
@@ -20,14 +21,13 @@ function App(){
                     <AboutMePage/>
                 </Route>
             </Switch> */}
-            <About/>
-            <AllProjects/>
-            <Skills/>
-            <WorkExperiences/>
-            <Contact/>
-
-        </Layout>
-    );
+      <About />
+      <AllProjects />
+      <Skills />
+      <WorkExperiences />
+      <Contact />
+    </Layout>
+  );
 }
 
 export default App;

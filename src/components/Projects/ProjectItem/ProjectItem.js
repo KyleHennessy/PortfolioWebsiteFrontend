@@ -22,13 +22,13 @@ const ProjectItem = (props) => {
             className={classes.preview}
             id={classes.preview}
             alt="homer"
-            src={require("../../../assets/homer_lurking.gif")}
+            src={require(props.thumbnailUrl)}
           />
         )}
         {!isGifShown && (
           <Card.Img
             className={classes.cardImage}
-            src={props.image}
+            src={props.thumbnailUrl}
             alt={props.title}
           />
         )}
