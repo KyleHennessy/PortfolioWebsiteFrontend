@@ -34,7 +34,7 @@ const ProjectItem = (props) => {
         )}
         <Card.Body>
           <Card.Title>{props.title}</Card.Title>
-          <Card.Text>{props.description}</Card.Text>
+          <Card.Text>{props.summary}</Card.Text>
         </Card.Body>
         <Card.Footer>
           <Button variant="light">Learn more</Button>

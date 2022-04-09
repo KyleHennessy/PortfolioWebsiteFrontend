@@ -13,7 +13,7 @@ const ProjectsList = (props) => {
                 key={project.id}
                 id={project.id}
                 title={project.title}
-                summary={project.sumnmary}
+                summary={project.summary}
                 thumbnailUrl={project.thumbnailUrl}
                 previewUrl={project.previewUrl}
               />
