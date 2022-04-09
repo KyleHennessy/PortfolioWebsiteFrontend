@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 
 import Layout from "./components/Layout/Layout";
 
-import AllProjects from "./components/Sections/AllProjects";
+import Projects from "./components/Sections/Projects";
 import About from "./components/Sections/About";
 import Skills from "./components/Sections/Skills";
 import WorkExperiences from "./components/Sections/WorkExperiences";
@@ -22,7 +22,7 @@ function App() {
                 </Route>
             </Switch> */}
       <About />
-      <AllProjects />
+      <Projects />
       <Skills />
       <WorkExperiences />
       <Contact />

@@ -1,14 +1,8 @@
 import { Col, Container, Row } from "react-bootstrap";
 import ProjectItem from "./ProjectItem/ProjectItem";
 
-// import classes from "./ProjectsList.module.css";
-
 const ProjectsList = (props) => {
   let projectList = <h2>No projects have been found.</h2>
-  
-  // console.log(props);
-
-  // return ({projectList})
 
   if(props.projects.length > 0){
     projectList = (
@@ -19,9 +13,9 @@ const ProjectsList = (props) => {
                 key={project.id}
                 id={project.id}
                 title={project.title}
-                description={project.description}
+                summary={project.sumnmary}
                 thumbnailUrl={project.thumbnailUrl}
-                skillsUsed = {project.skillsUsed}
+                previewUrl={project.previewUrl}
               />
             </Col>
         ))}
@@ -42,20 +36,6 @@ const ProjectsList = (props) => {
   return (
     <Container>
       {content}
-      {/* <Row xs={1} md={3} className="g-4">
-        {props.projects.map((project) => (
-            <Col xs key={project.id}>
-              <ProjectItem
-                key={project.id}
-                id={project.id}
-                title={project.title}
-                image={project.image}
-                description={project.description}
-              />
-            </Col>
-        ))}
-      </Row> */}
-
     </Container>
   );
 };

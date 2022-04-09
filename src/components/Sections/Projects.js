@@ -6,30 +6,6 @@ import { AiOutlineHistory } from "react-icons/ai";
 import { Container } from "react-bootstrap";
 
 const AllProjects = () => {
-  // const DUMMY_PROJECTS = [
-  //   {
-  //     id: "m1",
-  //     title: "Portforlio website using react and .net",
-  //     image:
-  //       "https://marvel-b1-cdn.bc0a.com/f00000000075552/www.perforce.com/sites/default/files/image/2020-01/image-blog-future-software-development.png",
-  //     description:
-  //       "A portfolio website that is used to display all of my past, present and future projects!",
-  //   },
-  //   {
-  //     id: "m2",
-  //     title: "My first game",
-  //     image:
-  //       "https://marvel-b1-cdn.bc0a.com/f00000000075552/www.perforce.com/sites/default/files/image/2020-01/image-blog-future-software-development.png",
-  //     description: "My first ever game created from scratch!",
-  //   },
-  //   {
-  //     id: "m3",
-  //     title: "My first mobile app",
-  //     image:
-  //       "https://marvel-b1-cdn.bc0a.com/f00000000075552/www.perforce.com/sites/default/files/image/2020-01/image-blog-future-software-development.png",
-  //     description: "My first ever mobile app created from scratch!",
-  //   },
-  // ];
 
   const [projects, setProjects] = useState([]);
 
@@ -43,8 +19,13 @@ const AllProjects = () => {
         loadedProjects.push({
           id: projectKey,
           title: projectsObj[projectKey].title,
+          summary: projectsObj[projectKey].summary,
           description: projectsObj[projectKey].description,
           thumbnailUrl: projectsObj[projectKey].thumbnailUrl,
+          previewUrl: projectsObj[projectKey].previewUrl,
+          demoUrl: projectsObj[projectKey].demoUrl,
+          detailImagesUrl: projectsObj[projectKey].detailImagesUrl,
+          sourceCodeUrl: projectsObj[projectKey].sourceCodeUrl,
           skillsUsed: projectsObj[projectKey].skillsUsed,
         });
       }

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
@@ -22,7 +22,7 @@ const ProjectItem = (props) => {
             className={classes.preview}
             id={classes.preview}
             alt="homer"
-            src={require(props.thumbnailUrl)}
+            src={props.previewUrl}
           />
         )}
         {!isGifShown && (
