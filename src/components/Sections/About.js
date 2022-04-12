@@ -1,7 +1,4 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
-// import programming from "../../assets/programming.png";
-
-// const logo = require('../../assets/programm')
 
 const About = () => {
   return (

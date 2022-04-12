@@ -6,33 +6,6 @@ import { Container } from "react-bootstrap";
 import { MdComputer } from "react-icons/md";
 
 const Skills = () => {
-  // const DUMMY_SKILLS = [
-  //   {
-  //     id: "s1",
-  //     title: ".NET",
-  //   },
-  //   {
-  //     id: "s2",
-  //     title: "React",
-  //   },
-  //   {
-  //     id: "s3",
-  //     title: "SQL",
-  //   },
-  //   {
-  //     id: "s4",
-  //     title: "Microsoft Azure",
-  //   },
-  //   {
-  //     id: "s5",
-  //     title: "Python",
-  //   },
-  //   {
-  //     id: "s6",
-  //     title: "TypeScript",
-  //   },
-  // ];
-
   const [skills, setSkills] = useState([]);
   const { isLoading, error, sendRequest: fetchSkills } = useHttp();
 
