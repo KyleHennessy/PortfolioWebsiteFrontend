@@ -1,13 +1,13 @@
 import {
   Col,
   Container,
-  FloatingLabel,
-  Form,
   OverlayTrigger,
   Row,
   Tooltip,
 } from "react-bootstrap";
 import { IoMdContact } from "react-icons/io";
+
+import NewMessage from "../Contact/NewMessage";
 
 const Contact = () => {
   return (
@@ -95,29 +95,7 @@ const Contact = () => {
               to me on Linkedin or send me a message directly on my website and
               I will get back to you as soon as possible!
             </p>
-            <Form>
-              <Form.Group className="mb-3" controlId="formName">
-                <FloatingLabel controlId="floatingName" label="Name">
-                  <Form.Control type="text" placeholder="Enter name" />
-                </FloatingLabel>
-              </Form.Group>
-
-              <Form.Group className="mb-3" controlId="formEmail">
-                <FloatingLabel controlId="floatingEmail" label="Email">
-                  <Form.Control type="email" placeholder="Enter email" />
-                </FloatingLabel>
-              </Form.Group>
-
-              <Form.Group className="mb-3" controlId="formMessage">
-                <FloatingLabel controlId="floatingMessage" label="Message">
-                  <Form.Control
-                    as="textarea"
-                    placeholder="Leave a message here"
-                    style={{ height: "120px" }}
-                  />
-                </FloatingLabel>
-              </Form.Group>
-            </Form>
+            <NewMessage/>
           </Col>
         </Row>
       </Container>
