@@ -1,8 +1,9 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Alert } from "react-bootstrap";
+import PlaceholderCard from "../UI/PlaceholderCard";
 import SkillItem from "./SkillItem/SkillItem";
 
 const SkillsList = (props) => {
-  let skillList = <h2>No skills have been found.</h2>
+  let skillList = <Alert variant='warning'>No skills could be found at this time. Please try again later</Alert>
 
   if(props.skills.length > 0){
     skillList = (
@@ -23,7 +24,19 @@ const SkillsList = (props) => {
   }
 
   if(props.loading){
-    content = 'Loading Skills...';
+    content = (
+      <Row md={3} className="g-4">
+        <Col xs>
+          <PlaceholderCard isSkill={true} />
+        </Col>
+        <Col xs>
+          <PlaceholderCard isSkill={true} />
+        </Col>
+        <Col xs>
+          <PlaceholderCard isSkill={true} />
+        </Col>
+      </Row>
+    );
   }
 
   return (

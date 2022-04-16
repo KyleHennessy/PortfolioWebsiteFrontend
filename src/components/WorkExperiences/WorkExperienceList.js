@@ -1,8 +1,9 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { Alert, Col, Container, Row } from "react-bootstrap";
 import WorkExperienceItem from "./WorkExperienceItem/WorkExperienceItem";
+import PlaceholderCard from "../UI/PlaceholderCard";
 
 const WorkExperienceList = (props) => {
-  let workExperienceList = <h2>No work experiences have been found.</h2>;
+  let workExperienceList = <Alert variant='warning'>No work experience could be found at this time. Please try again later</Alert>;
 
   if (props.workExperiences.length > 0) {
     workExperienceList = (
@@ -34,7 +35,16 @@ const WorkExperienceList = (props) => {
   }
 
   if(props.loading){
-    content = 'Loading Work Experiences...';
+    content = (
+      <Row md={2} className="g-4">
+        <Col xs>
+          <PlaceholderCard isSkill={false}/>
+        </Col>
+        <Col xs>
+          <PlaceholderCard isSkill={false}/>
+        </Col>
+      </Row>
+    );
   }
 
   return (
