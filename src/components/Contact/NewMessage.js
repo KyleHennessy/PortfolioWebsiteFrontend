@@ -31,7 +31,7 @@ const NewMessage = (props) => {
   };
 
   return (
-      <MessageForm onEnterMessage={enterMessageHandler} loading={isLoading}/>
+      <MessageForm onEnterMessage={enterMessageHandler} loading={isLoading} error={error}/>
   )
 };
 
