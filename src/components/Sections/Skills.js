@@ -19,7 +19,6 @@ const Skills = () => {
           title: skillsObj[skillKey].title,
         });
       }
-      console.log(loadedSkills);
       setSkills(loadedSkills);
     };
 

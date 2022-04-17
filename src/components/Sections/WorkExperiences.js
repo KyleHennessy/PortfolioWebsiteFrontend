@@ -5,26 +5,6 @@ import { useEffect, useState } from "react";
 import useHttp from "../../hooks/use-http";
 
 const WorkExperiences = () => {
-  // const DUMMY_JOBS = [
-  //   {
-  //     id: "j1",
-  //     title: "Software Developer Intern",
-  //     description:
-  //       "My first job as a software developer in the industry. I worked with .NET Framework",
-  //     dateStarted: "2020-03-01",
-  //     dateEnded: "2020-09-01",
-  //     currentJob: false,
-  //   },
-  //   {
-  //     id: "j2",
-  //     title: "Junior Software Developer",
-  //     description:
-  //       "I started this job directly after college as a graduate developer, but they were very happy with my performance and I was promoted to a junior developer after 6 months",
-  //     dateStarted: "2021-06-01",
-  //     dateEnded: null,
-  //     currentJob: true,
-  //   },
-  // ];
   const [workExperiences, setWorkExperiences] = useState([]);
 
   const { isLoading, error, sendRequest: fetchWorkExperiences } = useHttp();
@@ -43,7 +23,7 @@ const WorkExperiences = () => {
           skillsUsed: workExperienceObj[workExperienceKey].skillsUsed,
         });
       }
-      console.log(loadedWorkExperiences);
+      
       setWorkExperiences(loadedWorkExperiences);
     };
 

@@ -19,6 +19,7 @@ const WorkExperienceList = (props) => {
                 title={workExperience.title}
                 description={workExperience.description}
                 dateStarted={workExperience.dateStarted}
+                skillsUsed={workExperience.skillsUsed}
                 dateEnded={workExperience.dateEnded}
                 currentJob={workExperience.currentJob}
               />

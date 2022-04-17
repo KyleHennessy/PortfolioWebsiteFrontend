@@ -29,7 +29,6 @@ const AllProjects = () => {
           skillsUsed: projectsObj[projectKey].skillsUsed,
         });
       }
-      console.log(loadedProjects);
       setProjects(loadedProjects);
     };
 
