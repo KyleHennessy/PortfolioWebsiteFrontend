@@ -9,9 +9,9 @@ const ProjectsList = (props) => {
     projectList = (
       <Row xs={1} md={3} className="g-4">
         {props.projects.map((project) => (
-          <Col xs key={project.id}>
+          <Col xs key={project.key}>
             <ProjectItem
-              key={project.id}
+              key={project.key}
               id={project.id}
               title={project.title}
               summary={project.summary}

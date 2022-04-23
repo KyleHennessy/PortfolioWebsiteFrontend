@@ -17,7 +17,8 @@ const AllProjects = () => {
 
       for (const projectKey in projectsObj) {
         loadedProjects.push({
-          id: projectKey,
+          key: projectKey,
+          id: projectsObj[projectKey].id,
           title: projectsObj[projectKey].title,
           summary: projectsObj[projectKey].summary,
           description: projectsObj[projectKey].description,

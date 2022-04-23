@@ -8,7 +8,7 @@ import About from "./components/Sections/About";
 import Skills from "./components/Sections/Skills";
 import WorkExperiences from "./components/Sections/WorkExperiences";
 import Contact from "./components/Sections/Contact";
-
+import ProjectDetails from "./components/Projects/ProjectDetails/ProjectDetails";
 
 function App() {
   return (
@@ -21,11 +21,18 @@ function App() {
                     <AboutMePage/>
                 </Route>
             </Switch> */}
-      <About />
-      <Projects />
-      <Skills />
-      <WorkExperiences />
-      <Contact />
+
+      
+      <Route path="/" exact>
+        <About />
+        <Projects />
+        <Skills />
+        <WorkExperiences />
+        <Contact />
+      </Route>
+      <Route path="/project-details/:id">
+        <ProjectDetails />
+      </Route>
     </Layout>
   );
 }
