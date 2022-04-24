@@ -14,16 +14,16 @@ import classes from "./ProjectDetailContent.module.css";
 const ProjectDetailContent = (props) => {
   return (
     <div>
-      <Breadcrumb>
-        <Breadcrumb.Item>
-          <Link to="/">Home</Link>
-        </Breadcrumb.Item>
-        <Breadcrumb.Item>
-          <Link to="/">Projects</Link>
-        </Breadcrumb.Item>
-        <Breadcrumb.Item active>Project Details</Breadcrumb.Item>
-      </Breadcrumb>
-
+        <Breadcrumb>
+          <Breadcrumb.Item linkAs={Link} linkProps={{to: "/"}}>
+            Home
+          </Breadcrumb.Item>
+          <Breadcrumb.Item linkAs={Link} linkProps={{to: "/"}}>
+            Projects
+          </Breadcrumb.Item>
+          <Breadcrumb.Item active>Project Details</Breadcrumb.Item>
+        </Breadcrumb>
+        
       <h1>{props.title}</h1>
       <Card className={classes.images}>
         <Row xs={1} md={2} className="g-4">

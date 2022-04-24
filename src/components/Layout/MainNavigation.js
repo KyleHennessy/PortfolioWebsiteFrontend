@@ -11,10 +11,10 @@ const MainNavigation = () =>{
                     <Link to='/' >Home</Link>
                 </li>
                 <li>
-                    <Link to='/project-details'>Projects</Link>
+                    <Link to='/'>Projects</Link>
                 </li>
                 <li>
-                    <Link to="/contact">Contact Me</Link>
+                    <Link to="/">Contact Me</Link>
                 </li>
             </ul>
         </nav>

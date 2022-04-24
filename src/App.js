@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 import Layout from "./components/Layout/Layout";
 
@@ -13,16 +13,6 @@ import ProjectDetails from "./components/Projects/ProjectDetails/ProjectDetails"
 function App() {
   return (
     <Layout>
-      {/* <Switch>
-                <Route path="/" exact>
-                    <AllProjectsPage/>
-                </Route>
-                <Route path="/about-me">
-                    <AboutMePage/>
-                </Route>
-            </Switch> */}
-
-      
       <Route path="/" exact>
         <About />
         <Projects />

@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { Container, Image } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Alert, Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import useHttp from "../../../hooks/use-http";
-import ProjectsList from "../ProjectsList";
+import PlaceholderCard from "../../UI/PlaceholderCard";
 import ProjectDetailContent from "./ProjectDetailContent";
 
 const ProjectDetails = () => {
@@ -34,19 +33,28 @@ const ProjectDetails = () => {
     );
   }, [fetchProjectDetails, params.id]);
 
-  console.log(projectDetails);
   return (
     <section id="projectDetails">
+      {error && (
+        <Alert variant="warning">
+          Details for this project could not be found. Please try again later
+        </Alert>
+      )}
+      
       <Container className="px-5 py-10 mx-auto">
-
-        <ProjectDetailContent
-          title={projectDetails.title}
-          description={projectDetails.description}
-          demoUrl={projectDetails.demoUrl}
-          detailImagesUrl={projectDetails.detailImagesUrl}
-          sourceCodeUrl={projectDetails.sourceCodeUrl}
-          skillsUsed={projectDetails.skillsUsed}
-        />
+      {isLoading && (<PlaceholderCard isSkill={false}/>)}
+      {!error && !isLoading && (
+        
+          <ProjectDetailContent
+            title={projectDetails.title}
+            description={projectDetails.description}
+            demoUrl={projectDetails.demoUrl}
+            detailImagesUrl={projectDetails.detailImagesUrl}
+            sourceCodeUrl={projectDetails.sourceCodeUrl}
+            skillsUsed={projectDetails.skillsUsed}
+          />
+        
+      )}
       </Container>
     </section>
   );
