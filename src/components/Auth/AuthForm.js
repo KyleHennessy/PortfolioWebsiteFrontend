@@ -1,16 +1,16 @@
-import { useState, useRef } from 'react';
-import useHttp from '../../hooks/use-http';
+import { useRef } from 'react';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 
 const AuthForm = (props) => {
     const emailInputRef = useRef();
     const passwordInputRef = useRef();
+    
 
     const submitHandler = (event) => {
         event.preventDefault();
 
         const enteredEmail = emailInputRef.current.value;
-        const enteredPassword = passwordInput.current.value;
+        const enteredPassword = passwordInputRef.current.value;
 
         props.onEnterLogin(enteredEmail, enteredPassword);
     }

@@ -9,7 +9,7 @@ import Skills from "./components/Sections/Skills";
 import WorkExperiences from "./components/Sections/WorkExperiences";
 import Contact from "./components/Sections/Contact";
 import ProjectDetails from "./components/Projects/ProjectDetails/ProjectDetails";
-import AuthForm from "./components/Auth/AuthForm";
+import Auth from "./components/Auth/Auth";
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
         <ProjectDetails />
       </Route>
       <Route path="/auth">
-        <AuthForm />
+        <Auth/>
       </Route>
     </Layout>
   );
