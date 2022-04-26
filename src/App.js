@@ -9,6 +9,7 @@ import Skills from "./components/Sections/Skills";
 import WorkExperiences from "./components/Sections/WorkExperiences";
 import Contact from "./components/Sections/Contact";
 import ProjectDetails from "./components/Projects/ProjectDetails/ProjectDetails";
+import AuthForm from "./components/Auth/AuthForm";
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
       </Route>
       <Route path="/project-details/:id">
         <ProjectDetails />
+      </Route>
+      <Route path="/auth">
+        <AuthForm />
       </Route>
     </Layout>
   );
