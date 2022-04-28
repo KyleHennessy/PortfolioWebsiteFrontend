@@ -1,5 +1,5 @@
-import React from "react";
-import { Route } from "react-router-dom";
+import React, { useContext } from "react";
+import { Route, Redirect } from "react-router-dom";
 
 import Layout from "./components/Layout/Layout";
 
@@ -10,23 +10,39 @@ import WorkExperiences from "./components/Sections/WorkExperiences";
 import Contact from "./components/Sections/Contact";
 import ProjectDetails from "./components/Projects/ProjectDetails/ProjectDetails";
 import Auth from "./components/Auth/Auth";
+import Manage from "./components/Admin/Manage";
+import AuthContext from "./store/auth-context";
+import { Switch } from "react-router-dom";
 
 function App() {
+  const authCtx = useContext(AuthContext);
   return (
     <Layout>
-      <Route path="/" exact>
-        <About />
-        <Projects />
-        <Skills />
-        <WorkExperiences />
-        <Contact />
-      </Route>
-      <Route path="/project-details/:id">
-        <ProjectDetails />
-      </Route>
-      <Route path="/auth">
-        <Auth/>
-      </Route>
+      <Switch>
+        <Route path="/" exact>
+          <About />
+          <Projects />
+          <Skills />
+          <WorkExperiences />
+          <Contact />
+        </Route>
+        <Route path="/project-details/:id">
+          <ProjectDetails />
+        </Route>
+        {!authCtx.isLoggedIn && (
+          <Route path="/auth">
+            <Auth />
+          </Route>
+        )}
+        {authCtx.isLoggedIn && (
+          <Route path="/admin">
+            <Manage />
+          </Route>
+        )}
+        <Route path="*">
+          <Redirect to="/" />
+        </Route>
+      </Switch>
     </Layout>
   );
 }
