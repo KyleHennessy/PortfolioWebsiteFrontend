@@ -10,9 +10,13 @@ import WorkExperiences from "./components/Sections/WorkExperiences";
 import Contact from "./components/Sections/Contact";
 import ProjectDetails from "./components/Projects/ProjectDetails/ProjectDetails";
 import Auth from "./components/Auth/Auth";
-import Manage from "./components/Admin/Manage";
+import ManageList from "./components/Admin/ManageList";
 import AuthContext from "./store/auth-context";
 import { Switch } from "react-router-dom";
+import ManageProjectList from "./components/Admin/ManageProjects/ManageProjectList";
+import ManageSkillList from "./components/Admin/ManageSkills/ManageSkillList";
+import ManageWorkExpereinceList from "./components/Admin/ManageWorkExperiences/ManageWorkExperienceList";
+import ManageMessageList from "./components/Admin/ManageMessages/ManageMessageList";
 
 function App() {
   const authCtx = useContext(AuthContext);
@@ -34,11 +38,23 @@ function App() {
             <Auth />
           </Route>
         )}
-        {authCtx.isLoggedIn && (
-          <Route path="/admin">
-            <Manage />
-          </Route>
-        )}
+        {authCtx.isLoggedIn && [
+          <Route path="/admin" key={Math.random()}>
+            <ManageList />
+          </Route>,
+          <Route path="/manage-projects" key={Math.random()}>
+            <ManageProjectList />
+          </Route>,
+          <Route path="/manage-skills" key={Math.random()}>
+            <ManageSkillList />
+          </Route>,
+          <Route path="/manage-work-experiences" key={Math.random()}>
+            <ManageWorkExpereinceList />
+          </Route>,
+          <Route path="/manage-messages" key={Math.random()}>
+            <ManageMessageList />
+          </Route>,
+        ]}
         <Route path="*">
           <Redirect to="/" />
         </Route>
