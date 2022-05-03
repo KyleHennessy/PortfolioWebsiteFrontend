@@ -9,15 +9,21 @@ import {
   Tooltip,
   Image,
   Breadcrumb,
+  Spinner,
 } from "react-bootstrap";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
+
+import useHttp from "../../../hooks/use-http";
 
 import classes from "./CreateUpdateProject.module.css";
 
 const CreateUpdateProject = (props) => {
+  const { isLoading, error, sendRequest: fetchSkills } = useHttp();
+  const [loadedSkills, setLoadedSkills] = useState([]);
+
   const [enteredTitle, setInputTitle] = useState("");
   const [enteredSummary, setInputSummary] = useState("");
   const [enteredDescription, setInputDescription] = useState("");
@@ -28,6 +34,21 @@ const CreateUpdateProject = (props) => {
   const [enteredDetailImage2, setInputDetailImage2] = useState("");
   const [enteredSourceCode, setInputSourceCode] = useState("");
   const [enteredSkills, setInputSkills] = useState([]);
+
+  useEffect(() => {
+    const transformSkills = (skillsObj) => {
+      const loadedSkills = [];
+
+      for (const skillKey in skillsObj) {
+        loadedSkills.push({
+          id: skillsObj[skillKey].id,
+          title: skillsObj[skillKey].title,
+        });
+      }
+      setLoadedSkills(loadedSkills);
+    };
+    fetchSkills({ url: "https://localhost:7277/api/Skills" }, transformSkills);
+  }, [fetchSkills]);
 
   const titleInputChangeHandler = (event) => {
     setInputTitle(event.target.value);
@@ -57,7 +78,21 @@ const CreateUpdateProject = (props) => {
     setInputSourceCode(event.target.value);
   };
   const skillsInputChangeHandler = (event) => {
-    setInputSkills(event.target.value);
+    console.log(event.target.checked);
+    console.log(event.target.value);
+    const skillTitle = event.target.value;
+    if (event.target.checked) {
+      // const skillTitle=event.target.value;
+      setInputSkills((enteredSkills) => [...enteredSkills, skillTitle]);
+      console.log(enteredSkills);
+    } else {
+      // if (enteredSkills.length > 1) {
+      //   setInputSkills(enteredSkills.slice(-1));
+      // } else {
+      //   setInputSkills([]);
+      // }
+      setInputSkills(enteredSkills.filter(s => s !== skillTitle));
+    }
   };
 
   const [isGifShown, setIsGifShown] = useState(false);
@@ -85,7 +120,6 @@ const CreateUpdateProject = (props) => {
         </Breadcrumb>
         <Row>
           <Col>
-          
             <Card>
               <Card.Body>
                 <Form>
@@ -217,11 +251,17 @@ const CreateUpdateProject = (props) => {
                       />
                     </FloatingLabel>
                   </Form.Group>
-                  <Form.Check
-                    type="checkbox"
-                    label="placeholder for skills"
-                    onChange={skillsInputChangeHandler}
-                  />
+                  {isLoading && <Spinner animation="border" role="status" />}
+                  {!isLoading &&
+                    loadedSkills.map((skill) => (
+                      <Form.Check
+                        key={skill.id}
+                        type="checkbox"
+                        value={skill.title}
+                        label={skill.title}
+                        onClick={skillsInputChangeHandler}
+                      />
+                    ))}
                 </Form>
               </Card.Body>
             </Card>
@@ -313,14 +353,11 @@ const CreateUpdateProject = (props) => {
               </a>
               <Card.Text>Skills Used:</Card.Text>
               <Row xs={2} md={5} className="g-4">
-                {/* {props.skillsUsed?.map((skill) => (
-                  <Col xs key={skill.id}>
-                    <Card className={classes.skills}>{skill.title}</Card>
+                {enteredSkills.map((skill) => (
+                  <Col xs key={Math.random()}>
+                    <Card className={classes.skills}>{skill}</Card>
                   </Col>
-                ))} */}
-                <Col>
-                  <p>Skills placeholder</p>
-                </Col>
+                ))}
               </Row>
             </Card.Body>
           </Card>
