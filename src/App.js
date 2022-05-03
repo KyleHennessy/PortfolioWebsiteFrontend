@@ -17,6 +17,7 @@ import ManageProjectList from "./components/Admin/ManageProjects/ManageProjectLi
 import ManageSkillList from "./components/Admin/ManageSkills/ManageSkillList";
 import ManageWorkExpereinceList from "./components/Admin/ManageWorkExperiences/ManageWorkExperienceList";
 import ManageMessageList from "./components/Admin/ManageMessages/ManageMessageList";
+import CreateUpdateProject from "./components/Admin/ManageProjects/CreateUpdateProject";
 
 function App() {
   const authCtx = useContext(AuthContext);
@@ -44,6 +45,9 @@ function App() {
           </Route>,
           <Route path="/manage-projects" key={Math.random()}>
             <ManageProjectList />
+          </Route>,
+          <Route path="/create-update-project/:id?" key={Math.random()}>
+            <CreateUpdateProject />
           </Route>,
           <Route path="/manage-skills" key={Math.random()}>
             <ManageSkillList />

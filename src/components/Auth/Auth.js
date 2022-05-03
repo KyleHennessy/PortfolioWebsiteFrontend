@@ -18,8 +18,6 @@ const Auth = () => {
       email: emailText,
       password: passwordText,
     };
-    // const nowTime = new Date();
-    // const expirationSeconds = (loggedInUser.expires.getTime() - nowTime.getTime());
     authCtx.login(loggedInUser.token, loggedInUser.expires);
     history.replace('/admin');
 
