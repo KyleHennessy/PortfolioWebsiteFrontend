@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row, Breadcrumb } from "react-bootstrap";
+
+import { Link } from "react-router-dom";
 
 import { useHistory } from "react-router-dom";
 
@@ -47,6 +49,17 @@ const ManageProjectList = () => {
   return (
     <section id="manageProjects">
       <Container className="px-5 py-10 mx-auto">
+      <Breadcrumb>
+          <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>
+            Home
+          </Breadcrumb.Item>
+          <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/admin" }}>
+            Admin
+          </Breadcrumb.Item>
+          <Breadcrumb.Item active>
+            Manage Projects
+          </Breadcrumb.Item>
+        </Breadcrumb>
         <Button onClick={() => redirectHandler("/create-update-project")}>Create New Project</Button>
         
         <Row>
