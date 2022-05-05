@@ -13,7 +13,7 @@ import Auth from "./components/Auth/Auth";
 import ManageList from "./components/Admin/ManageList";
 import AuthContext from "./store/auth-context";
 import { Switch } from "react-router-dom";
-import ManageProjectList from "./components/Admin/ManageProjects/ManageProjectList";
+import ManageProjects from "./components/Admin/ManageProjects/ManageProjects";
 import ManageSkillList from "./components/Admin/ManageSkills/ManageSkillList";
 import ManageWorkExpereinceList from "./components/Admin/ManageWorkExperiences/ManageWorkExperienceList";
 import ManageMessageList from "./components/Admin/ManageMessages/ManageMessageList";
@@ -44,7 +44,7 @@ function App() {
             <ManageList />
           </Route>,
           <Route path="/manage-projects" key={Math.random()}>
-            <ManageProjectList />
+            <ManageProjects />
           </Route>,
           <Route path="/create-update-project/:id?" key={Math.random()}>
             <CreateUpdateProject />

@@ -8,7 +8,7 @@ import {
   Tooltip,
   Image,
   Spinner,
-  Button
+  Button,
 } from "react-bootstrap";
 
 import { useEffect, useState } from "react";
@@ -33,6 +33,25 @@ const CreateUpdateProjectForm = (props) => {
   const [enteredDetailImage2, setInputDetailImage2] = useState("");
   const [enteredSourceCode, setInputSourceCode] = useState("");
   const [enteredSkills, setInputSkills] = useState([]);
+
+  useEffect(() => {
+    console.log(props.loadedProject);
+    if (props.loadedProject) {
+      setInputTitle(props.loadedProject.title);
+      setInputSummary(props.loadedProject.summary);
+      setInputDescription(props.loadedProject.description);
+      setInputThumbnail(props.loadedProject.thumbnailUrl);
+      setInputPreview(props.loadedProject.previewUrl);
+      setInputDemo(props.loadedProject.demoUrl);
+      setInputDetailImage1(props.loadedProject.detailImagesUrl[0]);
+      setInputDetailImage2(props.loadedProject.detailImagesUrl[1]);
+      setInputSourceCode(props.loadedProject.sourceCodeUrl);
+      //TODO: Make this work
+      // props.loadedProject.skillsUsed.map((skill) => {
+      //   setInputSkills((enteredSkills) => [...enteredSkills, skill.title]);
+      // });
+    }
+  }, [props.loadedProject]);
 
   useEffect(() => {
     const transformSkills = (skillsObj) => {
@@ -112,18 +131,19 @@ const CreateUpdateProjectForm = (props) => {
       skills: enteredSkills,
     };
     props.onSubmitProject(projectDetails);
-    setInputTitle('');
-    setInputSummary('');
-    setInputDescription('');
-    setInputThumbnail('');
-    setInputPreview('');
-    setInputDemo('');
-    setInputDetailImage1('');
-    setInputDetailImage2('');
-    setInputSourceCode('');
+    setInputTitle("");
+    setInputSummary("");
+    setInputDescription("");
+    setInputThumbnail("");
+    setInputPreview("");
+    setInputDemo("");
+    setInputDetailImage1("");
+    setInputDetailImage2("");
+    setInputSourceCode("");
     setInputSkills([]);
-    history.replace('/manage-projects');
+    history.replace("/manage-projects");
   };
+
   return (
     <div>
       <Row>
@@ -134,6 +154,7 @@ const CreateUpdateProjectForm = (props) => {
                 <Form.Group className="mb-3" controlId="projectTitle">
                   <FloatingLabel controlId="floatingProjectTitle" label="Title">
                     <Form.Control
+                      value={enteredTitle}
                       required
                       onChange={titleInputChangeHandler}
                       type="text"
@@ -148,6 +169,7 @@ const CreateUpdateProjectForm = (props) => {
                     label="Summary"
                   >
                     <Form.Control
+                      value={enteredSummary}
                       required
                       onChange={summaryInputChangeHandler}
                       type="text"
@@ -162,6 +184,7 @@ const CreateUpdateProjectForm = (props) => {
                     label="Description"
                   >
                     <Form.Control
+                      value={enteredDescription}
                       required
                       onChange={descriptionInputChangeHandler}
                       type="text"
@@ -176,6 +199,7 @@ const CreateUpdateProjectForm = (props) => {
                     label="Thumbnail"
                   >
                     <Form.Control
+                      value={enteredThumbnail}
                       required
                       onChange={thumbnailInputChangeHandler}
                       type="url"
@@ -187,6 +211,7 @@ const CreateUpdateProjectForm = (props) => {
                 <Form.Group className="mb-3" controlId="projectPreviewUrl">
                   <FloatingLabel controlId="floatingPreviewUrl" label="Preview">
                     <Form.Control
+                      value={enteredPreview}
                       required
                       onChange={previewInputChangeHandler}
                       type="url"
@@ -198,6 +223,7 @@ const CreateUpdateProjectForm = (props) => {
                 <Form.Group className="mb-3" controlId="projectDemoUrl">
                   <FloatingLabel controlId="floatingDemoUrl" label="Demo">
                     <Form.Control
+                      value={enteredDemo}
                       required
                       onChange={demoInputChangeHandler}
                       type="url"
@@ -212,6 +238,7 @@ const CreateUpdateProjectForm = (props) => {
                     label="DetailImage1"
                   >
                     <Form.Control
+                      value={enteredDetailImage1}
                       required
                       onChange={detailImage1InputChangeHandler}
                       type="url"
@@ -226,6 +253,7 @@ const CreateUpdateProjectForm = (props) => {
                     label="DetailImage2"
                   >
                     <Form.Control
+                      value={enteredDetailImage2}
                       required
                       onChange={detailImage2InputChangeHandler}
                       type="url"
@@ -240,6 +268,7 @@ const CreateUpdateProjectForm = (props) => {
                     label="Source Code"
                   >
                     <Form.Control
+                      value={enteredSourceCode}
                       required
                       onChange={sourceCodeInputChangeHandler}
                       type="url"
@@ -251,6 +280,8 @@ const CreateUpdateProjectForm = (props) => {
                 {!isLoading &&
                   loadedSkills.map((skill) => (
                     <Form.Check
+                      // TODO: Make this populate based on loaded skills
+                      //defaultChecked={enteredSkills.includes(skill.title)}
                       key={skill.id}
                       type="checkbox"
                       value={skill.title}
@@ -265,11 +296,8 @@ const CreateUpdateProjectForm = (props) => {
                     Submit
                   </Button>
                 ) : (
-                  <Spinner animation="border" role="status"/>
+                  <Spinner animation="border" role="status" />
                 )}
-                {/* {props.projectError && (
-                  <p style={{color:'red'}}>Something went wrong sending the request</p>
-                )} */}
               </Form>
             </Card.Body>
           </Card>

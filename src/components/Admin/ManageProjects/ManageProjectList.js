@@ -1,81 +1,52 @@
-import { useState, useEffect } from "react";
-import { Button, Col, Container, Row, Breadcrumb } from "react-bootstrap";
+import { Col, Container, Row, Alert } from "react-bootstrap";
+import PlaceholderCard from "../../UI/PlaceholderCard";
+import ManageProjectItem from "./ManageProjectItem";
 
-import { Link } from "react-router-dom";
+const ManageProjectList = (props) => {
+    let projectList = <Alert variant='warning'>No projects could be found at this time. Please try again later</Alert>;
 
-import { useHistory } from "react-router-dom";
-
-import useHttp from "../../../hooks/use-http";
-import ProjectsList from "../../Projects/ProjectsList";
-
-const ManageProjectList = () => {
-  const [projects, setProjects] = useState([]);
-
-  const { isLoading, error, sendRequest: fetchProjects } = useHttp();
-
-  const history = useHistory();
-
-  const redirectHandler = (path) =>{
-    history.push(path);
-  };
-
-  useEffect(() => {
-    const transformProjects = (projectsObj) => {
-      const loadedProjects = [];
-
-      for (const projectKey in projectsObj) {
-        loadedProjects.push({
-          key: projectKey,
-          id: projectsObj[projectKey].id,
-          title: projectsObj[projectKey].title,
-          summary: projectsObj[projectKey].summary,
-          description: projectsObj[projectKey].description,
-          thumbnailUrl: projectsObj[projectKey].thumbnailUrl,
-          previewUrl: projectsObj[projectKey].previewUrl,
-          demoUrl: projectsObj[projectKey].demoUrl,
-          detailImagesUrl: projectsObj[projectKey].detailImagesUrl,
-          sourceCodeUrl: projectsObj[projectKey].sourceCodeUrl,
-          skillsUsed: projectsObj[projectKey].skillsUsed,
-        });
+    if (props.projects.length > 0) {
+        projectList = (
+          <Row xs={1} md={3} className="g-4">
+            {props.projects.map((project) => (
+              <Col xs key={project.key}>
+                <ManageProjectItem
+                  key={project.key}
+                  id={project.id}
+                  title={project.title}
+                  summary={project.summary}
+                  thumbnailUrl={project.thumbnailUrl}
+                  previewUrl={project.previewUrl}
+                />
+              </Col>
+            ))}
+          </Row>
+        );
       }
-      setProjects(loadedProjects);
-    };
+    
+      let content = projectList;
+    
+      if (props.error) {
+        <h2>Something went wrong</h2>;
+      }
 
-    fetchProjects(
-      { url: "https://localhost:7277/api/Projects" },
-      transformProjects
-    );
-  }, [fetchProjects]);
-  return (
-    <section id="manageProjects">
-      <Container className="px-5 py-10 mx-auto">
-      <Breadcrumb>
-          <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>
-            Home
-          </Breadcrumb.Item>
-          <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/admin" }}>
-            Admin
-          </Breadcrumb.Item>
-          <Breadcrumb.Item active>
-            Manage Projects
-          </Breadcrumb.Item>
-        </Breadcrumb>
-        <Button onClick={() => redirectHandler("/create-update-project")}>Create New Project</Button>
-        
-        <Row>
-          <h3>Select a project from the list to modify the details</h3>
-          <Col>
-            <ProjectsList
-              projects={projects}
-              loading={isLoading}
-              error={error}
-              onFetch={fetchProjects}
-            />
-          </Col>
-        </Row>
-      </Container>
-    </section>
-  );
+      if (props.loading) {
+        content = (
+          <Row md={3} className="g-4">
+            <Col xs>
+              <PlaceholderCard isSkill={false} />
+            </Col>
+            <Col xs>
+              <PlaceholderCard isSkill={false} />
+            </Col>
+            <Col xs>
+              <PlaceholderCard isSkill={false} />
+            </Col>
+          </Row>
+        );
+      }
+
+      return <Container>{content}</Container>;
 };
 
 export default ManageProjectList;
