@@ -97,13 +97,14 @@ const CreateUpdateProjectForm = (props) => {
   };
   const skillsInputChangeHandler = (event) => {
     console.log(event.target.checked);
-    console.log(event.target.value);
-    const skillTitle = event.target.value;
+    console.log(JSON.stringify(event.target.value));
+    const skillId = event.target.value;
+    const selectedSkill = loadedSkills.find(s => s.id === skillId);
     if (event.target.checked) {
-      setInputSkills((enteredSkills) => [...enteredSkills, skillTitle]);
+      setInputSkills((enteredSkills) => [...enteredSkills, selectedSkill]);
       console.log(enteredSkills);
     } else {
-      setInputSkills(enteredSkills.filter((s) => s !== skillTitle));
+      setInputSkills(enteredSkills.filter((s) => s.title !== selectedSkill.title));
     }
   };
 
@@ -284,7 +285,7 @@ const CreateUpdateProjectForm = (props) => {
                       //defaultChecked={enteredSkills.includes(skill.title)}
                       key={skill.id}
                       type="checkbox"
-                      value={skill.title}
+                      value={skill.id}
                       label={skill.title}
                       onClick={skillsInputChangeHandler}
                     />
@@ -427,7 +428,7 @@ const CreateUpdateProjectForm = (props) => {
             <Row xs={2} md={5} className="g-4">
               {enteredSkills.map((skill) => (
                 <Col xs key={Math.random()}>
-                  <Card className={classes.skills}>{skill}</Card>
+                  <Card className={classes.skills}>{skill.title}</Card>
                 </Col>
               ))}
             </Row>
