@@ -4,11 +4,11 @@ import { Container, Breadcrumb, Alert } from "react-bootstrap";
 
 import { Link } from "react-router-dom";
 
-import useHttp from "../../../hooks/use-http";
+import useHttp from "../../../../hooks/use-http";
 
 import CreateUpdateProjectForm from "./CreateUpdateProjectForm";
 
-import AuthContext from "../../../store/auth-context";
+import AuthContext from "../../../../store/auth-context";
 
 import { useParams } from "react-router-dom";
 

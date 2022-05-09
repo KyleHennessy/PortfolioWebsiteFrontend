@@ -17,7 +17,7 @@ import ManageProjects from "./components/Admin/ManageProjects/ManageProjects";
 import ManageSkillList from "./components/Admin/ManageSkills/ManageSkillList";
 import ManageWorkExpereinceList from "./components/Admin/ManageWorkExperiences/ManageWorkExperienceList";
 import ManageMessageList from "./components/Admin/ManageMessages/ManageMessageList";
-import CreateUpdateProject from "./components/Admin/ManageProjects/CreateUpdateProject";
+import CreateUpdateProject from "./components/Admin/ManageProjects/CreateUpdateProject/CreateUpdateProject";
 
 function App() {
   const authCtx = useContext(AuthContext);

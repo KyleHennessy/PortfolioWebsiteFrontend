@@ -13,7 +13,7 @@ import {
 
 import { useEffect, useState } from "react";
 
-import useHttp from "../../../hooks/use-http";
+import useHttp from "../../../../hooks/use-http";
 
 import classes from "./CreateUpdateProject.module.css";
 import { useHistory } from "react-router-dom";
@@ -348,7 +348,7 @@ const CreateUpdateProjectForm = (props) => {
               )}
               {!enteredDemo && (
                 <Image
-                  src={require("../../../assets/placeholder.png")}
+                  src={require("../../../../assets/placeholder.png")}
                   height={535}
                   width={900}
                   className={classes.detailImages}
@@ -370,7 +370,7 @@ const CreateUpdateProjectForm = (props) => {
                   )}
                   {!enteredDetailImage1 && (
                     <Image
-                      src={require("../../../assets/placeholder.png")}
+                      src={require("../../../../assets/placeholder.png")}
                       height={255}
                       width={400}
                       className={classes.detailImages}
@@ -390,7 +390,7 @@ const CreateUpdateProjectForm = (props) => {
                   )}
                   {!enteredDetailImage2 && (
                     <Image
-                      src={require("../../../assets/placeholder.png")}
+                      src={require("../../../../assets/placeholder.png")}
                       height={255}
                       width={400}
                       className={classes.detailImages}
