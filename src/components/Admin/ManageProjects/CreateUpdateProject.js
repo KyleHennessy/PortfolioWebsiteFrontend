@@ -25,33 +25,8 @@ const CreateUpdateProject = (props) => {
 
   const [loadedProject, setLoadedProject] = useState(null);
 
-  // const [projectLoading, setProjectLoading] = useState(false);
-  // const [projectError, setProjectError] = useState(null);
-
-  // const loadedProject = useCallback(async(requestConfig, applyData) => {
-  //   setProjectLoading(true);
-  //   setProjectError(null);
-  //   try{
-  //       const response = await fetch(requestConfig.url, {
-  //           method: requestConfig.method ? requestConfig.method : 'GET',
-  //           headers: requestConfig.headers ? requestConfig.headers : {},
-  //           body: requestConfig.body ? JSON.stringify(requestConfig.body) : null,
-  //       });
-
-  //       if(!response.ok){
-  //           throw new Error('Request failed!');
-  //       }
-
-  //       const data = await response.json();
-  //       applyData(data);
-  //   } catch(err){
-  //     setProjectError(err.message || 'Something went wrong!');
-  //   }
-  //   setProjectLoading(false);
-  // }, []);
-
   useEffect(() => {
-    if(params.id){
+    if (params.id) {
       const transformProject = (projectObj) => {
         const loadedProject = {
           id: projectObj.id,
@@ -65,36 +40,28 @@ const CreateUpdateProject = (props) => {
           sourceCodeUrl: projectObj.sourceCodeUrl,
           skillsUsed: projectObj.skillsUsed,
         };
-  
+
         setLoadedProject(loadedProject);
       };
-  
+
       getProjectRequest(
         { url: `https://localhost:7277/api/Projects/${params.id}` },
         transformProject
       );
     }
-    
   }, [getProjectRequest, params.id]);
 
   const sendProjectHandler = async (project) => {
     const detailImages = new Array(0);
     detailImages.push(project.detailImage1, project.detailImage2);
     let requestUrl;
-    if(params.id){
+    let method;
+    let body;
+    if (params.id) {
       requestUrl = `https://localhost:7277/api/Projects/${params.id}`;
-    }else{
-      requestUrl = "https://localhost:7277/api/Projects";
-    }
-
-    sendProjectRequest({
-      url: requestUrl,
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${authCtx.token}`,
-      },
-      body: {
+      method = "PUT";
+      body = {
+        id: params.id,
         title: project.title,
         summary: project.summary,
         description: project.description,
@@ -104,7 +71,31 @@ const CreateUpdateProject = (props) => {
         detailImagesUrl: detailImages,
         sourceCodeUrl: project.sourceCode,
         skillsUsed: project.skills,
+      };
+    } else {
+      requestUrl = "https://localhost:7277/api/Projects";
+      method = "POST";
+      body = {
+        title: project.title,
+        summary: project.summary,
+        description: project.description,
+        thumbnailUrl: project.thumbnail,
+        previewUrl: project.preview,
+        demoUrl: project.demo,
+        detailImagesUrl: detailImages,
+        sourceCodeUrl: project.sourceCode,
+        skillsUsed: project.skills,
+      };
+    }
+
+    sendProjectRequest({
+      url: requestUrl,
+      method: method,
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${authCtx.token}`,
       },
+      body: body,
     });
   };
 
