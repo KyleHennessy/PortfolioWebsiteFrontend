@@ -35,7 +35,6 @@ const CreateUpdateProjectForm = (props) => {
   const [enteredSkills, setInputSkills] = useState([]);
 
   useEffect(() => {
-    console.log(props.loadedProject);
     if (props.loadedProject) {
       setInputTitle(props.loadedProject.title);
       setInputSummary(props.loadedProject.summary);
@@ -96,8 +95,6 @@ const CreateUpdateProjectForm = (props) => {
     setInputSourceCode(event.target.value);
   };
   const skillsInputChangeHandler = (event) => {
-    console.log(event.target.checked);
-    console.log(JSON.stringify(event.target.value));
     const skillId = event.target.value;
     const selectedSkill = loadedSkills.find(s => s.id === skillId);
     if (event.target.checked) {

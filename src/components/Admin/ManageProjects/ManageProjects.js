@@ -1,5 +1,12 @@
 import { useState, useEffect } from "react";
-import { Button, Col, Container, Row, Breadcrumb } from "react-bootstrap";
+import {
+  Button,
+  Col,
+  Container,
+  Row,
+  Breadcrumb,
+  Alert,
+} from "react-bootstrap";
 
 import { Link } from "react-router-dom";
 
@@ -15,7 +22,7 @@ const ManageProjects = () => {
 
   const history = useHistory();
 
-  const redirectHandler = (path) =>{
+  const redirectHandler = (path) => {
     history.push(path);
   };
 
@@ -49,21 +56,25 @@ const ManageProjects = () => {
   return (
     <section id="manageProjects">
       <Container className="px-5 py-10 mx-auto">
-      <Breadcrumb>
+        <Breadcrumb>
           <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>
             Home
           </Breadcrumb.Item>
           <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/admin" }}>
             Admin
           </Breadcrumb.Item>
-          <Breadcrumb.Item active>
-            Manage Projects
-          </Breadcrumb.Item>
+          <Breadcrumb.Item active>Manage Projects</Breadcrumb.Item>
         </Breadcrumb>
-        <Button onClick={() => redirectHandler("/create-update-project")}>Create New Project</Button>
-        
+        <Button onClick={() => redirectHandler("/create-update-project")}>
+          Create New Project
+        </Button>
+
+        <Alert variant="secondary">
+            Select a project from the list to modify the details
+          </Alert>
+
         <Row>
-          <h3>Select a project from the list to modify the details</h3>
+          
           <Col>
             <ManageProjectList
               projects={projects}

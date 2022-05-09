@@ -113,7 +113,7 @@ const CreateUpdateProject = (props) => {
           <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/manage-projects" }}>
             Manage Projects
           </Breadcrumb.Item>
-          <Breadcrumb.Item active>CreateProject</Breadcrumb.Item>
+          <Breadcrumb.Item active>Create Project</Breadcrumb.Item>
         </Breadcrumb>
 
         <CreateUpdateProjectForm

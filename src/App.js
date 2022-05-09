@@ -14,10 +14,11 @@ import ManageList from "./components/Admin/ManageList";
 import AuthContext from "./store/auth-context";
 import { Switch } from "react-router-dom";
 import ManageProjects from "./components/Admin/ManageProjects/ManageProjects";
-import ManageSkillList from "./components/Admin/ManageSkills/ManageSkillList";
 import ManageWorkExpereinceList from "./components/Admin/ManageWorkExperiences/ManageWorkExperienceList";
 import ManageMessageList from "./components/Admin/ManageMessages/ManageMessageList";
 import CreateUpdateProject from "./components/Admin/ManageProjects/CreateUpdateProject/CreateUpdateProject";
+import CreateSkill from "./components/Admin/ManageSkills/CreateSkill/CreateSkill";
+import ManageSkills from "./components/Admin/ManageSkills/ManageSkills";
 
 function App() {
   const authCtx = useContext(AuthContext);
@@ -50,7 +51,10 @@ function App() {
             <CreateUpdateProject />
           </Route>,
           <Route path="/manage-skills" key={Math.random()}>
-            <ManageSkillList />
+            <ManageSkills/>
+          </Route>,
+          <Route path="/create-skill" key={Math.random()}>
+            <CreateSkill/>
           </Route>,
           <Route path="/manage-work-experiences" key={Math.random()}>
             <ManageWorkExpereinceList />
