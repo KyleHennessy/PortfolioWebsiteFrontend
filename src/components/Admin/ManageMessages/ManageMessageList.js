@@ -1,11 +1,38 @@
+import { useContext } from "react";
 import { Alert, Button, Spinner, Table } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
+import useHttp from "../../../hooks/use-http";
+import AuthContext from "../../../store/auth-context";
 
 const ManageMessageList = (props) => {
+  const authCtx = useContext(AuthContext);
+
+  const { isLoading, sendRequest: deleteMessageRequest } = useHttp();
+
+  const history = useHistory();
+
   let messageList = (
     <Alert variant="warning">
       No messages could be found at this time. Please try again later
     </Alert>
   );
+
+  const deleteHandler = async (id) =>{
+    console.log("DELETED");
+    deleteMessageRequest({
+      url: `https://localhost:7277/api/Messages/${id}`,
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${authCtx.token}`
+      },
+    });
+
+    
+    if(!isLoading){
+      history.go(0);
+    }
+  };
 
   if (props.messages.length > 0) {
     messageList = (
@@ -28,7 +55,7 @@ const ManageMessageList = (props) => {
               <td>{message.name}</td>
               <td>{message.email}</td>
               <td>{message.messageText}</td>
-              <td><Button variant="danger">Delete</Button></td>
+              <td><Button variant="danger" onClick={() => deleteHandler(message.id)}>Delete</Button></td>
             </tr>
           ))}
         </tbody>
