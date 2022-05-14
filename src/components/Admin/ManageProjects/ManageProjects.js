@@ -70,11 +70,10 @@ const ManageProjects = () => {
         </Button>
 
         <Alert variant="secondary">
-            Select a project from the list to modify the details
-          </Alert>
+          Select a project from the list to modify the details
+        </Alert>
 
         <Row>
-          
           <Col>
             <ManageProjectList
               projects={projects}

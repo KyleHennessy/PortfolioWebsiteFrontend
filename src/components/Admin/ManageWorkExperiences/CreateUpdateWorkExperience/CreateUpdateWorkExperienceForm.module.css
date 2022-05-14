@@ -1,0 +1,18 @@
+.card {
+    min-height: 100%;
+    text-align: center;
+  }
+  
+  
+  .skills{
+    text-align: center;
+  }
+  
+  .links{
+    height:50px;
+    width:50px;
+    color: white;
+    margin-right: 10px;
+    margin-bottom: 15px;
+  }
+  

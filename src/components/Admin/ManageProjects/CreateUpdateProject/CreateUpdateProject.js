@@ -1,20 +1,13 @@
 import { useContext, useEffect } from "react";
-
 import { Container, Breadcrumb, Alert } from "react-bootstrap";
-
 import { Link } from "react-router-dom";
-
 import useHttp from "../../../../hooks/use-http";
-
 import CreateUpdateProjectForm from "./CreateUpdateProjectForm";
-
 import AuthContext from "../../../../store/auth-context";
-
 import { useParams } from "react-router-dom";
-
 import { useState } from "react";
 
-const CreateUpdateProject = (props) => {
+const CreateUpdateProject = () => {
   const params = useParams();
 
   const authCtx = useContext(AuthContext);

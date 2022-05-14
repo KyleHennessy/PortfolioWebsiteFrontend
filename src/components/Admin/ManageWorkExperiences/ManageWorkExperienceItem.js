@@ -1,8 +1,14 @@
-import { Card, Col, Row } from "react-bootstrap";
+import { Card, Row, Col, Button, ButtonGroup } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 
-import classes from "./WorkExperienceItem.module.css";
+import classes from "./ManageWorkExperienceItem.module.css";
 
-const WorkExperienceItem = (props) => {
+const ManageWorkExperienceItem = (props) => {
+  const history = useHistory();
+  const redirectHandler = (path) => {
+    history.push(path);
+  };
+
   const startDate = new Date(props.dateStarted);
   const endDate =
     props.dateEnded === null ? "Present" : new Date(props.dateEnded);
@@ -25,7 +31,7 @@ const WorkExperienceItem = (props) => {
           </div>
         )}
       </Card.Body>
-      
+
       {endDate instanceof Date && (
         <Card.Footer>
           {startDate.toLocaleString("default", { month: "long" })}{" "}
@@ -40,8 +46,12 @@ const WorkExperienceItem = (props) => {
           {startDate.getFullYear().toString()} &#8212; {endDate}
         </Card.Footer>
       )}
+      <ButtonGroup>
+        <Button>Update</Button>
+        <Button variant="danger">Delete</Button>
+      </ButtonGroup>
     </Card>
   );
 };
 
-export default WorkExperienceItem;
+export default ManageWorkExperienceItem;

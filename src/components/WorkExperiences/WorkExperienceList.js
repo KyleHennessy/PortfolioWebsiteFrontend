@@ -3,7 +3,11 @@ import WorkExperienceItem from "./WorkExperienceItem/WorkExperienceItem";
 import PlaceholderCard from "../UI/PlaceholderCard";
 
 const WorkExperienceList = (props) => {
-  let workExperienceList = <Alert variant='warning'>No work experience could be found at this time. Please try again later</Alert>;
+  let workExperienceList = (
+    <Alert variant="warning">
+      No work experience could be found at this time. Please try again later
+    </Alert>
+  );
 
   if (props.workExperiences.length > 0) {
     workExperienceList = (
@@ -31,28 +35,24 @@ const WorkExperienceList = (props) => {
 
   let content = workExperienceList;
 
-  if(props.error){
-    <h2>Something went wrong</h2>
+  if (props.error) {
+    <h2>Something went wrong</h2>;
   }
 
-  if(props.loading){
+  if (props.loading) {
     content = (
       <Row md={2} className="g-4">
         <Col xs>
-          <PlaceholderCard isSkill={false}/>
+          <PlaceholderCard isSkill={false} />
         </Col>
         <Col xs>
-          <PlaceholderCard isSkill={false}/>
+          <PlaceholderCard isSkill={false} />
         </Col>
       </Row>
     );
   }
 
-  return (
-    <Container>
-      {content}
-    </Container>
-  );
+  return <Container>{content}</Container>;
 };
 
 export default WorkExperienceList;
