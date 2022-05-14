@@ -78,11 +78,22 @@ const CreateUpdateWorkExperienceForm = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    let endDate;
+    const today = new Date();
+    if (
+      enteredDateEnded.getDate() === today.getDate() &&
+      enteredDateEnded.getMonth() === today.getMonth() &&
+      enteredDateEnded.getFullYear() === today.getFullYear()
+    ) {
+      endDate = null;
+    }else{
+      endDate = enteredDateEnded;
+    }
     const workExperienceDetails = {
       title: enteredTitle,
       description: enteredDescription,
       dateStarted: enteredDateStarted,
-      dateEnded: enteredDateEnded,
+      dateEnded: endDate,
       skills: enteredSkills,
     };
     props.onSubmitWorkExperience(workExperienceDetails);
@@ -140,9 +151,10 @@ const CreateUpdateWorkExperienceForm = (props) => {
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="workDateEnded">
-                  <Form.Label>End Date</Form.Label>
+                  <Form.Label>
+                    End Date &#40;set date to today to set as current job&#41;
+                  </Form.Label>
                   <Form.Control
-                    required
                     name="dateEnded"
                     onChange={dateEndedInputHandler}
                     type="date"
@@ -193,7 +205,7 @@ const CreateUpdateWorkExperienceForm = (props) => {
               </div>
             </Card.Body>
             <Card.Footer>
-              {enteredDateStarted.toLocaleString("default", {month:"long"})}{" "}
+              {enteredDateStarted.toLocaleString("default", { month: "long" })}{" "}
               {enteredDateStarted.getFullYear().toString()} &#8212;{" "}
               {enteredDateEnded.toLocaleString("default", { month: "long" })}{" "}
               {enteredDateEnded.getFullYear().toString()}

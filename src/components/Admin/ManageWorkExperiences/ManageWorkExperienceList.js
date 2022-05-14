@@ -16,7 +16,7 @@ const ManageWorkExperienceList = (props) => {
           .slice(0)
           .reverse()
           .map((workExperience) => (
-            <Col xs key={workExperience.id}>
+            <Col xs key={workExperience.key}>
               <ManageWorkExperienceItem
                 id={workExperience.id}
                 title={workExperience.title}

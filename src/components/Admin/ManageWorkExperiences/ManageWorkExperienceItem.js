@@ -1,13 +1,36 @@
-import { Card, Row, Col, Button, ButtonGroup } from "react-bootstrap";
+import { useContext } from "react";
+import { Card, Row, Col, Button, ButtonGroup, Spinner } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
+import useHttp from "../../../hooks/use-http";
+import AuthContext from "../../../store/auth-context";
 
 import classes from "./ManageWorkExperienceItem.module.css";
 
 const ManageWorkExperienceItem = (props) => {
+  const authCtx = useContext(AuthContext);
+
+  const { isLoading, sendRequest: deleteWorkExperienceRequest } = useHttp();
+
   const history = useHistory();
   const redirectHandler = (path) => {
     history.push(path);
   };
+
+  const deleteHandler = async (id) => {
+    console.log("DELETED");
+    deleteWorkExperienceRequest({
+      url: `https://localhost:7277/api/WorkExperiences/${id}`,
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${authCtx.token}`
+      },
+    });
+
+    if(!isLoading){
+      history.go(0);
+    }
+  }
 
   const startDate = new Date(props.dateStarted);
   const endDate =
@@ -47,8 +70,8 @@ const ManageWorkExperienceItem = (props) => {
         </Card.Footer>
       )}
       <ButtonGroup>
-        <Button>Update</Button>
-        <Button variant="danger">Delete</Button>
+        <Button onClick={() => redirectHandler(`/create-update-work-experience/${props.id}`)}>Update</Button>
+        {isLoading ? (<Spinner animation="border" role="status"/>) : (<Button variant="danger" onClick={() => deleteHandler(props.id)}>Delete</Button>) }
       </ButtonGroup>
     </Card>
   );

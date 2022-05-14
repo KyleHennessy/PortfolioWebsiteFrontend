@@ -29,7 +29,8 @@ const ManageWorkExperiences = () => {
 
       for (const workExperienceKey in workExperienceObj) {
         loadedWorkExperiences.push({
-          id: workExperienceKey,
+          key: workExperienceKey,
+          id: workExperienceObj[workExperienceKey].id,
           title: workExperienceObj[workExperienceKey].title,
           description: workExperienceObj[workExperienceKey].description,
           dateStarted: workExperienceObj[workExperienceKey].dateStarted,
