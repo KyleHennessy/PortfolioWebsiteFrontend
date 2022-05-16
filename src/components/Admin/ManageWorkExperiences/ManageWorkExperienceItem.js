@@ -23,14 +23,14 @@ const ManageWorkExperienceItem = (props) => {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${authCtx.token}`
+        Authorization: `Bearer ${authCtx.token}`,
       },
     });
 
-    if(!isLoading){
+    if (!isLoading) {
       history.go(0);
     }
-  }
+  };
 
   const startDate = new Date(props.dateStarted);
   const endDate =
@@ -70,8 +70,20 @@ const ManageWorkExperienceItem = (props) => {
         </Card.Footer>
       )}
       <ButtonGroup>
-        <Button onClick={() => redirectHandler(`/create-update-work-experience/${props.id}`)}>Update</Button>
-        {isLoading ? (<Spinner animation="border" role="status"/>) : (<Button variant="danger" onClick={() => deleteHandler(props.id)}>Delete</Button>) }
+        <Button
+          onClick={() =>
+            redirectHandler(`/create-update-work-experience/${props.id}`)
+          }
+        >
+          Update
+        </Button>
+        {isLoading ? (
+          <Spinner animation="border" role="status" />
+        ) : (
+          <Button variant="danger" onClick={() => deleteHandler(props.id)}>
+            Delete
+          </Button>
+        )}
       </ButtonGroup>
     </Card>
   );

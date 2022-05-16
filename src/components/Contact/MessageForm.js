@@ -132,9 +132,6 @@ const MessageForm = (props) => {
       ) : (
         <Spinner animation="border" role="status" />
       )}
-      {props.error && (
-        <p style={{color:'red'}}>Something went wrong, please try again</p>
-      )}
     </Form>
   );
 };

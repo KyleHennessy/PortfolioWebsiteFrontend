@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { Alert, Container } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import useHttp from "../../../hooks/use-http";
 import PlaceholderCard from "../../UI/PlaceholderCard";
 import ProjectDetailContent from "./ProjectDetailContent";
 
 const ProjectDetails = () => {
   const params = useParams();
+  const location = useLocation();
 
   const [projectDetails, setProjectDetails] = useState({});
 
@@ -32,6 +33,10 @@ const ProjectDetails = () => {
       transformProject
     );
   }, [fetchProjectDetails, params.id]);
+
+  useEffect(() => {
+    window.scrollTo(0,0);
+  }, [location]);
 
   return (
     <section id="projectDetails">

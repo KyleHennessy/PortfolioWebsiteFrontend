@@ -15,8 +15,8 @@ const About = () => {
               Feel free to have a look around to learn more about me!
             </p>
             <div className="aboutme-links">
-              <Button variant="success">Contact Me</Button> &nbsp; &nbsp;
-              <Button variant="success">My Work</Button>
+              <Button variant="success" onClick={() => window.scrollTo(0, 10000)}>Contact Me</Button> &nbsp; &nbsp;
+              <Button variant="success" onClick={() => window.scrollTo(0, 1750)}>Previous Experience</Button>
             </div>
           </Col>
           <Col>

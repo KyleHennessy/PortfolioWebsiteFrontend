@@ -20,13 +20,13 @@ const MainNavigation = () =>{
         <nav>
             <ul>
                 <li>
-                    <Link to='/' >Home</Link>
+                    <Link to='/' onClick={() => window.scrollTo(0, 0)}>Home</Link>
                 </li>
                 <li>
-                    <Link to='/'>Projects</Link>
+                    <Link to='/' onClick={() => window.scrollTo(0, 375)}>Projects</Link>
                 </li>
                 <li>
-                    <Link to="/">Contact Me</Link>
+                    <Link to="/" onClick={() => window.scrollTo(0, 1100)}>Skills</Link>
                 </li>
                 {isLoggedIn && (
                     <li>

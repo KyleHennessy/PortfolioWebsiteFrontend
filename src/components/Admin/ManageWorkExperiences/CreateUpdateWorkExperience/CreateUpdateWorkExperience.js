@@ -56,7 +56,7 @@ const CreateUpdateWorkExperience = () => {
         description: workExperience.description,
         dateStarted: workExperience.dateStarted,
         dateEnded: workExperience.dateEnded,
-        skillsUsed: workExperience.skillsUsed,
+        skillsUsed: workExperience.skills,
       };
     } else {
       requestUrl = "https://localhost:7277/api/WorkExperiences/";
