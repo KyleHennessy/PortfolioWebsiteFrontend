@@ -105,6 +105,8 @@ const CreateUpdateWorkExperienceForm = (props) => {
     history.replace("/manage-work-experiences");
   };
 
+  const todaysDate = new Date().toISOString().split("T")[0];
+
   return (
     <div>
       <Row>
@@ -147,6 +149,7 @@ const CreateUpdateWorkExperienceForm = (props) => {
                     onChange={dateStartedInputHander}
                     type="date"
                     placeholder="Start Date"
+                    defaultValue={enteredDateStarted}
                   />
                 </Form.Group>
 
@@ -155,10 +158,13 @@ const CreateUpdateWorkExperienceForm = (props) => {
                     End Date &#40;set date to today to set as current job&#41;
                   </Form.Label>
                   <Form.Control
+                    required
                     name="dateEnded"
                     onChange={dateEndedInputHandler}
                     type="date"
                     placeholder="End Date"
+                    max={todaysDate}
+                    
                   />
                 </Form.Group>
 
