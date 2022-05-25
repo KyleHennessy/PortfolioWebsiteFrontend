@@ -1,19 +1,20 @@
 import MessageForm from "./MessageForm";
 import useHttp from "../../hooks/use-http";
+import { useState } from "react";
 
-const NewMessage = (props) => {
+const NewMessage = () => {
   const { isLoading, error, sendRequest: sendMessageRequest } = useHttp();
+  const [createdMessage, setCreatedMessage] = useState({});
 
   const createMessage = (nameText, emailText, messageText, messageData) => {
     const generatedId = messageData.id;
-    const createdMessage = {
+    setCreatedMessage({
       id: generatedId,
       name: nameText,
       email: emailText,
       message: messageText,
-    };
-
-    props.onAddMessage(createdMessage);
+    });
+    console.log(createdMessage);
   };
 
   const enterMessageHandler = async (nameText, emailText, messageText) => {
@@ -31,11 +32,15 @@ const NewMessage = (props) => {
   };
 
   return (
-    <MessageForm
-      onEnterMessage={enterMessageHandler}
-      loading={isLoading}
-      error={error}
-    />
+    <div>
+      <MessageForm
+        onEnterMessage={enterMessageHandler}
+        loading={isLoading}
+        error={error}
+        created={createdMessage}
+      />
+      
+    </div>
   );
 };
 

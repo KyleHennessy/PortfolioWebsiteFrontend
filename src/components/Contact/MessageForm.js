@@ -4,8 +4,11 @@ import {
   Button,
   Alert,
   Spinner,
+  Row,
+  Col,
 } from "react-bootstrap";
 import { useState } from "react";
+import { AiFillCheckCircle } from "react-icons/ai";
 
 const MessageForm = (props) => {
   const [enteredName, setInputName] = useState("");
@@ -69,8 +72,16 @@ const MessageForm = (props) => {
       setInputEmail("");
       setInputMessage("");
     }
-  };
 
+  
+  };
+  const checkLoaded = document.getElementById("checkLogo");
+  const [fade, setFade] = useState('fadeIn');
+  if(checkLoaded){
+    setInterval(() => {
+      setFade('fadeOut');
+    }, 1000);
+  }
   return (
     <Form onSubmit={submitHandler}>
       <Form.Group className="mb-3" controlId="formName">
@@ -124,13 +135,21 @@ const MessageForm = (props) => {
           )}
         </FloatingLabel>
       </Form.Group>
+      <Row>
+        <Col className="buttonCol">
+          {!props.loading ? (
+            <Button variant="success" type="submit">
+              Send Message
+            </Button>
+          ) : (
+            <Spinner animation="border" role="status" />
+          )}
+          {props.created.id && (<AiFillCheckCircle id="checkLogo" className={fade} style={{ height: "30px", width: "30px", marginLeft:"20px"}} />)}
+        </Col>
+      </Row>
 
-      {!props.loading ? (
-        <Button variant="success" type="submit">
-          Send Message
-        </Button>
-      ) : (
-        <Spinner animation="border" role="status" />
+      {props.error && (
+        <p className="danger">Something went wrong, please try again</p>
       )}
     </Form>
   );
