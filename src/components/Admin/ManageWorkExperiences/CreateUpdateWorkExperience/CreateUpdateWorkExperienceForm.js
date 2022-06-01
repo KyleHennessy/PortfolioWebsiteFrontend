@@ -13,6 +13,9 @@ import useHttp from "../../../../hooks/use-http";
 import classes from "./CreateUpdateWorkExperienceForm.module.css";
 
 const CreateUpdateWorkExperienceForm = (props) => {
+  const apiUrlObject = require('../../../../api.json');
+  const apiUrl = apiUrlObject.apiUrl
+
   const history = useHistory();
   const { isLoading, error, sendRequest: fetchSkills } = useHttp();
   const [loadedSkills, setLoadedSkills] = useState([]);
@@ -48,8 +51,8 @@ const CreateUpdateWorkExperienceForm = (props) => {
       }
       setLoadedSkills(loadedSkills);
     };
-    fetchSkills({ url: "https://localhost:7277/api/Skills" }, transformSkills);
-  }, [fetchSkills]);
+    fetchSkills({ url: `${apiUrl}/api/Skills` }, transformSkills);
+  }, [fetchSkills, apiUrl]);
 
   const titleInputChangeHandler = (event) => {
     setInputTitle(event.target.value);

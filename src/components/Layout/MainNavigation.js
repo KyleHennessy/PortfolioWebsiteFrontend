@@ -27,12 +27,12 @@ const MainNavigation = () =>{
                     {location.pathname !== '/' && <Link to='/' onClick={() => window.scrollTo(0, 0)}>Home</Link>}
                 </li>
                 <li>
-                    {location.pathname === '/' && <p className={classes.link} onClick={() => window.scrollTo(0, 375)}>Projects</p>}
-                    {location.pathname !== '/' && <Link to='/' onClick={() => window.scrollTo(0, 375)}>Projects</Link>}
+                    {location.pathname === '/' && <p className={classes.link} onClick={() => window.scrollTo(0, 500)}>Projects</p>}
+                    {location.pathname !== '/' && <Link to='/' onClick={() => window.scrollTo(0, 500)}>Projects</Link>}
                 </li>
                 <li>
-                    {location.pathname === '/' && <p className={classes.link} onClick={() => window.scrollTo(0, 1100)}>Skills</p>}
-                    {location.pathname !== '/' && <Link to="/" onClick={() => window.scrollTo(0, 1100)}>Skills</Link>}
+                    {location.pathname === '/' && <p className={classes.link} onClick={() => window.scrollTo(0, 1500)}>Skills</p>}
+                    {location.pathname !== '/' && <Link to="/" onClick={() => window.scrollTo(0, 1500)}>Skills</Link>}
                 </li>
                 {isLoggedIn && (
                     <li>

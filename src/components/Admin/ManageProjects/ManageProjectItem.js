@@ -10,6 +10,9 @@ import useHttp from "../../../hooks/use-http";
 import { ButtonGroup, Spinner } from "react-bootstrap";
 
 const ManageProjectItem = (props) => {
+  const apiUrlObject = require('../../../api.json');
+  const apiUrl = apiUrlObject.apiUrl
+
   const authCtx = useContext(AuthContext);
 
   const { isLoading, sendRequest: deleteProjectRequest } = useHttp();
@@ -30,7 +33,7 @@ const ManageProjectItem = (props) => {
 
   const deleteHandler = async (id) => {
     deleteProjectRequest({
-      url: `https://localhost:7277/api/Projects/${id}`,
+      url: `${apiUrl}/api/Projects/${id}`,
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

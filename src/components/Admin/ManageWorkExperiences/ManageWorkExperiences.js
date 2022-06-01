@@ -13,6 +13,9 @@ import { Link } from "react-router-dom";
 import ManageWorkExperienceList from "./ManageWorkExperienceList";
 
 const ManageWorkExperiences = () => {
+  const apiUrlObject = require('../../../api.json');
+  const apiUrl = apiUrlObject.apiUrl
+
   const [workExperiences, setWorkExperiences] = useState([]);
 
   const { isLoading, error, sendRequest: fetchWorkExperiences } = useHttp();
@@ -43,10 +46,10 @@ const ManageWorkExperiences = () => {
     };
 
     fetchWorkExperiences(
-      { url: "https://localhost:7277/api/WorkExperiences" },
+      { url: `${apiUrl}/api/WorkExperiences` },
       transformWorkExperiences
     );
-  }, [fetchWorkExperiences]);
+  }, [fetchWorkExperiences, apiUrl]);
   return (
     <section id="manageWorkExperiences">
       <Container className="px-5 py-10 mx-auto">

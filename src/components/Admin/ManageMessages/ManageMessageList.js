@@ -5,6 +5,9 @@ import useHttp from "../../../hooks/use-http";
 import AuthContext from "../../../store/auth-context";
 
 const ManageMessageList = (props) => {
+  const apiUrlObject = require('../../../api.json');
+  const apiUrl = apiUrlObject.apiUrl
+
   const authCtx = useContext(AuthContext);
 
   const { isLoading, sendRequest: deleteMessageRequest } = useHttp();
@@ -20,7 +23,7 @@ const ManageMessageList = (props) => {
   const deleteHandler = async (id) =>{
     console.log("DELETED");
     deleteMessageRequest({
-      url: `https://localhost:7277/api/Messages/${id}`,
+      url: `${apiUrl}/api/Messages/${id}`,
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

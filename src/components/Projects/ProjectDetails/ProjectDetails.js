@@ -6,6 +6,9 @@ import PlaceholderCard from "../../UI/PlaceholderCard";
 import ProjectDetailContent from "./ProjectDetailContent";
 
 const ProjectDetails = () => {
+  const apiUrlObject = require('../../../api.json');
+  const apiUrl = apiUrlObject.apiUrl
+
   const params = useParams();
   const location = useLocation();
 
@@ -29,10 +32,10 @@ const ProjectDetails = () => {
     };
 
     fetchProjectDetails(
-      { url: `https://localhost:7277/api/Projects/${params.id}` },
+      { url: `${apiUrl}/api/Projects/${params.id}` },
       transformProject
     );
-  }, [fetchProjectDetails, params.id]);
+  }, [fetchProjectDetails, params.id, apiUrl]);
 
   useEffect(() => {
     window.scrollTo(0,0);

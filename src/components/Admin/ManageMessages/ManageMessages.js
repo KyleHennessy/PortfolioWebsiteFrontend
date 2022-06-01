@@ -6,6 +6,9 @@ import AuthContext from "../../../store/auth-context";
 import ManageMessageList from "./ManageMessageList";
 
 const ManageMessages = () => {
+  const apiUrlObject = require('../../../api.json');
+  const apiUrl = apiUrlObject.apiUrl
+
   const [messages, setMessages] = useState([]);
 
   const authCtx = useContext(AuthContext);
@@ -30,12 +33,12 @@ const ManageMessages = () => {
 
     fetchMessages(
       {
-        url: "https://localhost:7277/api/Messages",
+        url: `${apiUrl}/api/Messages`,
         headers: { Authorization: `Bearer ${authCtx.token}` },
       },
       transformMessages
     );
-  }, [fetchMessages, authCtx.token]);
+  }, [fetchMessages, authCtx.token, apiUrl]);
   return (
     <section id="manageMessages">
       <Container className="px-5 py-10 mx-auto">

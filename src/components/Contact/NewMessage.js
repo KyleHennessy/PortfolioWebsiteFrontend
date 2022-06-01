@@ -3,6 +3,9 @@ import useHttp from "../../hooks/use-http";
 import { useState } from "react";
 
 const NewMessage = () => {
+  const apiUrlObject = require('../../api.json');
+  const apiUrl = apiUrlObject.apiUrl
+
   const { isLoading, error, sendRequest: sendMessageRequest } = useHttp();
   const [createdMessage, setCreatedMessage] = useState({});
 
@@ -20,7 +23,7 @@ const NewMessage = () => {
   const enterMessageHandler = async (nameText, emailText, messageText) => {
     sendMessageRequest(
       {
-        url: "https://localhost:7277/api/Messages",
+        url: `${apiUrl}/api/Messages`,
         method: "POST",
         headers: {
           "Content-Type": "application/json",

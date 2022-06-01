@@ -8,6 +8,9 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 
 const CreateUpdateProject = () => {
+  const apiUrlObject = require('../../../../api.json');
+  const apiUrl = apiUrlObject.apiUrl
+
   const params = useParams();
 
   const authCtx = useContext(AuthContext);
@@ -38,11 +41,11 @@ const CreateUpdateProject = () => {
       };
 
       getProjectRequest(
-        { url: `https://localhost:7277/api/Projects/${params.id}` },
+        { url: `${apiUrl}/api/Projects/${params.id}` },
         transformProject
       );
     }
-  }, [getProjectRequest, params.id]);
+  }, [getProjectRequest, params.id, apiUrl]);
 
   const sendProjectHandler = async (project) => {
     const detailImages = new Array(0);
@@ -51,7 +54,7 @@ const CreateUpdateProject = () => {
     let method;
     let body;
     if (params.id) {
-      requestUrl = `https://localhost:7277/api/Projects/${params.id}`;
+      requestUrl = `${apiUrl}/api/Projects/${params.id}`;
       method = "PUT";
       body = {
         id: params.id,
@@ -66,7 +69,7 @@ const CreateUpdateProject = () => {
         skillsUsed: project.skills,
       };
     } else {
-      requestUrl = "https://localhost:7277/api/Projects";
+      requestUrl = `${apiUrl}/api/Projects`;
       method = "POST";
       body = {
         title: project.title,

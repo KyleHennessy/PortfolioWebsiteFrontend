@@ -6,13 +6,16 @@ import CreateSkillForm from "./CreateSkillForm";
 import useHttp from "../../../../hooks/use-http";
 
 const CreateSkill = () => {
+  const apiUrlObject = require('../../../../api.json');
+  const apiUrl = apiUrlObject.apiUrl
+
   const authCtx = useContext(AuthContext);
 
   const { isLoading, error, sendRequest: sendSkillRequest } = useHttp();
 
   const sendSkillHandler = async (skill) => {
     sendSkillRequest({
-      url: "https://localhost:7277/api/Skills",
+      url: `${apiUrl}/api/Skills`,
       method: "POST",
       headers: {
         "Content-Type": "application/json",

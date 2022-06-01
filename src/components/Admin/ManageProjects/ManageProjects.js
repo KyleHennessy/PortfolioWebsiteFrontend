@@ -16,6 +16,8 @@ import useHttp from "../../../hooks/use-http";
 import ManageProjectList from "./ManageProjectList";
 
 const ManageProjects = () => {
+  const apiUrlObject = require('../../../api.json');
+  const apiUrl = apiUrlObject.apiUrl
   const [projects, setProjects] = useState([]);
 
   const { isLoading, error, sendRequest: fetchProjects } = useHttp();
@@ -49,10 +51,10 @@ const ManageProjects = () => {
     };
 
     fetchProjects(
-      { url: "https://localhost:7277/api/Projects" },
+      { url: `${apiUrl}/api/Projects` },
       transformProjects
     );
-  }, [fetchProjects]);
+  }, [fetchProjects, apiUrl]);
   return (
     <section id="manageProjects">
       <Container className="px-5 py-10 mx-auto">

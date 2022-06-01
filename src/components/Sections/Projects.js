@@ -6,6 +6,8 @@ import { AiOutlineHistory } from "react-icons/ai";
 import { Container } from "react-bootstrap";
 
 const AllProjects = () => {
+  const apiUrlObject = require('../../api.json');
+  const apiUrl = apiUrlObject.apiUrl
 
   const [projects, setProjects] = useState([]);
 
@@ -34,10 +36,10 @@ const AllProjects = () => {
     };
 
     fetchProjects(
-      { url: "https://localhost:7277/api/Projects" },
+      { url: `${apiUrl}/api/Projects` },
       transformProjects
     );
-  }, [fetchProjects]);
+  }, [fetchProjects, apiUrl]);
 
   return (
     <section id="projects">

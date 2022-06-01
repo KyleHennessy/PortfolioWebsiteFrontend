@@ -13,6 +13,9 @@ import useHttp from "../../../hooks/use-http";
 import SkillsList from "../../Skills/SkillsList";
 
 const ManageSkills = () => {
+  const apiUrlObject = require('../../../api.json');
+  const apiUrl = apiUrlObject.apiUrl
+
   const [skills, setSkills] = useState([]);
 
   const { isLoading, error, sendRequest: fetchSkills } = useHttp();
@@ -37,8 +40,8 @@ const ManageSkills = () => {
       setSkills(loadedSkills);
     };
 
-    fetchSkills({ url: "https://localhost:7277/api/Skills" }, transformSkills);
-  }, [fetchSkills]);
+    fetchSkills({ url: `${apiUrl}/api/Skills` }, transformSkills);
+  }, [fetchSkills, apiUrl]);
 
   return (
     <section id="manageSkills">

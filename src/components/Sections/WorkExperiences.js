@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import useHttp from "../../hooks/use-http";
 
 const WorkExperiences = () => {
+  const apiUrlObject = require('../../api.json');
+  const apiUrl = apiUrlObject.apiUrl
   const [workExperiences, setWorkExperiences] = useState([]);
 
   const { isLoading, error, sendRequest: fetchWorkExperiences } = useHttp();
@@ -28,10 +30,10 @@ const WorkExperiences = () => {
     };
 
     fetchWorkExperiences(
-      { url: "https://localhost:7277/api/WorkExperiences" },
+      { url: `${apiUrl}/api/WorkExperiences` },
       transformWorkExperiences
     );
-  }, [fetchWorkExperiences]);
+  }, [fetchWorkExperiences, apiUrl]);
   return (
     <section id="work-experience">
       <Container className="px-5 py-10 mx-auto">

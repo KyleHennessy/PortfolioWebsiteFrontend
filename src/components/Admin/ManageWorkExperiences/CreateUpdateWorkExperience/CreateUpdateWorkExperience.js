@@ -7,6 +7,9 @@ import { Link } from "react-router-dom";
 import CreateUpdateWorkExperienceForm from "./CreateUpdateWorkExperienceForm";
 
 const CreateUpdateWorkExperience = () => {
+  const apiUrlObject = require('../../../../api.json');
+  const apiUrl = apiUrlObject.apiUrl
+
   const params = useParams();
 
   const authCtx = useContext(AuthContext);
@@ -37,18 +40,18 @@ const CreateUpdateWorkExperience = () => {
       };
 
       getWorkExperienceRequest(
-        { url: `https://localhost:7277/api/WorkExperiences/${params.id}` },
+        { url: `${apiUrl}/api/WorkExperiences/${params.id}` },
         transformWorkExperience
       );
     }
-  }, [getWorkExperienceRequest, params.id]);
+  }, [getWorkExperienceRequest, params.id, apiUrl]);
 
   const sendWorkExperienceHandler = async (workExperience) => {
     let requestUrl;
     let method;
     let body;
     if (params.id) {
-      requestUrl = `https://localhost:7277/api/WorkExperiences/${params.id}`;
+      requestUrl = `${apiUrl}/api/WorkExperiences/${params.id}`;
       method = "PUT";
       body = {
         id: params.id,
@@ -59,7 +62,7 @@ const CreateUpdateWorkExperience = () => {
         skillsUsed: workExperience.skills,
       };
     } else {
-      requestUrl = "https://localhost:7277/api/WorkExperiences/";
+      requestUrl = `${apiUrl}/api/WorkExperiences/`;
       method = "POST";
       body = {
         title: workExperience.title,

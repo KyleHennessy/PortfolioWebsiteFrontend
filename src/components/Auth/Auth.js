@@ -5,6 +5,8 @@ import AuthContext from "../../store/auth-context";
 import AuthForm from "./AuthForm";
 
 const Auth = () => {
+  const apiUrlObject = require('../../api.json');
+  const apiUrl = apiUrlObject.apiUrl
   const { isLoading, error, sendRequest: sendAuthRequest } = useHttp();
   const authCtx = useContext(AuthContext);
   const history = useHistory();
@@ -26,7 +28,7 @@ const Auth = () => {
   const enterLoginHandler = async (email, password) => {
     sendAuthRequest(
       {
-        url: "https://localhost:7277/api/Admin/Authenticate",
+        url: `${apiUrl}/api/Admin/Authenticate`,
         method: "POST",
         headers: {
           "Content-Type": "application/json",

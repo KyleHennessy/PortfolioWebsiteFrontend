@@ -7,6 +7,8 @@ import AuthContext from "../../../store/auth-context";
 import classes from "./ManageWorkExperienceItem.module.css";
 
 const ManageWorkExperienceItem = (props) => {
+  const apiUrlObject = require('../../../api.json');
+  const apiUrl = apiUrlObject.apiUrl
   const authCtx = useContext(AuthContext);
 
   const { isLoading, sendRequest: deleteWorkExperienceRequest } = useHttp();
@@ -17,9 +19,8 @@ const ManageWorkExperienceItem = (props) => {
   };
 
   const deleteHandler = async (id) => {
-    console.log("DELETED");
     deleteWorkExperienceRequest({
-      url: `https://localhost:7277/api/WorkExperiences/${id}`,
+      url: `${apiUrl}/api/WorkExperiences/${id}`,
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
