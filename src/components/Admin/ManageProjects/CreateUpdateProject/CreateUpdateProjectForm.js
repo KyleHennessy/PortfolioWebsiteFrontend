@@ -20,7 +20,8 @@ import { useHistory } from "react-router-dom";
 
 const CreateUpdateProjectForm = (props) => {
   const apiUrlObject = require('../../../../api.json');
-  const apiUrl = apiUrlObject.apiUrl
+  const apiUrl = apiUrlObject.apiUrl;
+  const apiKey = apiUrlObject.apiKey;
 
   const history = useHistory();
   const { isLoading, error, sendRequest: fetchSkills } = useHttp();
@@ -67,8 +68,8 @@ const CreateUpdateProjectForm = (props) => {
       }
       setLoadedSkills(loadedSkills);
     };
-    fetchSkills({ url: `${apiUrl}/api/Skills` }, transformSkills);
-  }, [fetchSkills, apiUrl]);
+    fetchSkills({ url: `${apiUrl}/api/Skills`, headers:{"Ocp-Apim-Subscription-Key": apiKey} }, transformSkills);
+  }, [fetchSkills, apiUrl, apiKey]);
 
   const titleInputChangeHandler = (event) => {
     setInputTitle(event.target.value);

@@ -7,7 +7,8 @@ import { Container } from "react-bootstrap";
 
 const AllProjects = () => {
   const apiUrlObject = require('../../api.json');
-  const apiUrl = apiUrlObject.apiUrl
+  const apiUrl = apiUrlObject.apiUrl;
+  const apiKey = apiUrlObject.apiKey;
 
   const [projects, setProjects] = useState([]);
 
@@ -36,10 +37,10 @@ const AllProjects = () => {
     };
 
     fetchProjects(
-      { url: `${apiUrl}/api/Projects` },
+      { url: `${apiUrl}/api/Projects`, headers: {"Ocp-Apim-Subscription-Key": apiKey} },
       transformProjects
     );
-  }, [fetchProjects, apiUrl]);
+  }, [fetchProjects, apiUrl, apiKey]);
 
   return (
     <section id="projects">

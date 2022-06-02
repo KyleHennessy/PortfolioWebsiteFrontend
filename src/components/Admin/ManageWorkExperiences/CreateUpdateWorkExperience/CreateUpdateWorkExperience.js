@@ -8,7 +8,8 @@ import CreateUpdateWorkExperienceForm from "./CreateUpdateWorkExperienceForm";
 
 const CreateUpdateWorkExperience = () => {
   const apiUrlObject = require('../../../../api.json');
-  const apiUrl = apiUrlObject.apiUrl
+  const apiUrl = apiUrlObject.apiUrl;
+  const apiKey = apiUrlObject.apiKey;
 
   const params = useParams();
 
@@ -40,11 +41,11 @@ const CreateUpdateWorkExperience = () => {
       };
 
       getWorkExperienceRequest(
-        { url: `${apiUrl}/api/WorkExperiences/${params.id}` },
+        { url: `${apiUrl}/api/WorkExperiences/${params.id}`, headers:{"Ocp-Apim-Subscription-Key": apiKey} },
         transformWorkExperience
       );
     }
-  }, [getWorkExperienceRequest, params.id, apiUrl]);
+  }, [getWorkExperienceRequest, params.id, apiUrl, apiKey]);
 
   const sendWorkExperienceHandler = async (workExperience) => {
     let requestUrl;
@@ -79,6 +80,7 @@ const CreateUpdateWorkExperience = () => {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${authCtx.token}`,
+        "Ocp-Apim-Subscription-Key": apiKey
       },
       body: body,
     });

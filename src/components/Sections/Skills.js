@@ -8,6 +8,7 @@ import { MdComputer } from "react-icons/md";
 const Skills = () => {
   const apiUrlObject = require('../../api.json');
   const apiUrl = apiUrlObject.apiUrl
+  const apiKey = apiUrlObject.apiKey;
 
   const [skills, setSkills] = useState([]);
   const { isLoading, error, sendRequest: fetchSkills } = useHttp();
@@ -25,8 +26,8 @@ const Skills = () => {
       setSkills(loadedSkills);
     };
 
-    fetchSkills({ url: `${apiUrl}/api/Skills` }, transformSkills);
-  }, [fetchSkills, apiUrl]);
+    fetchSkills({ url: `${apiUrl}/api/Skills`, headers: {"Ocp-Apim-Subscription-Key": apiKey} }, transformSkills);
+  }, [fetchSkills, apiUrl, apiKey]);
   return (
     <section id="skills">
       <Container className="px-5 py-10 mx-auto">

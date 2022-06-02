@@ -14,7 +14,8 @@ import classes from "./CreateUpdateWorkExperienceForm.module.css";
 
 const CreateUpdateWorkExperienceForm = (props) => {
   const apiUrlObject = require('../../../../api.json');
-  const apiUrl = apiUrlObject.apiUrl
+  const apiUrl = apiUrlObject.apiUrl;
+  const apiKey = apiUrlObject.apiKey;
 
   const history = useHistory();
   const { isLoading, error, sendRequest: fetchSkills } = useHttp();
@@ -51,8 +52,8 @@ const CreateUpdateWorkExperienceForm = (props) => {
       }
       setLoadedSkills(loadedSkills);
     };
-    fetchSkills({ url: `${apiUrl}/api/Skills` }, transformSkills);
-  }, [fetchSkills, apiUrl]);
+    fetchSkills({ url: `${apiUrl}/api/Skills`, headers:{"Ocp-Apim-Subscription-Key": apiKey} }, transformSkills);
+  }, [fetchSkills, apiUrl, apiKey]);
 
   const titleInputChangeHandler = (event) => {
     setInputTitle(event.target.value);

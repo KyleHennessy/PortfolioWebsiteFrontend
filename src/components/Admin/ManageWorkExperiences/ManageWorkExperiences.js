@@ -14,7 +14,8 @@ import ManageWorkExperienceList from "./ManageWorkExperienceList";
 
 const ManageWorkExperiences = () => {
   const apiUrlObject = require('../../../api.json');
-  const apiUrl = apiUrlObject.apiUrl
+  const apiUrl = apiUrlObject.apiUrl;
+  const apiKey = apiUrlObject.apiKey;
 
   const [workExperiences, setWorkExperiences] = useState([]);
 
@@ -46,10 +47,10 @@ const ManageWorkExperiences = () => {
     };
 
     fetchWorkExperiences(
-      { url: `${apiUrl}/api/WorkExperiences` },
+      { url: `${apiUrl}/api/WorkExperiences`, headers:{"Ocp-Apim-Subscription-Key": apiKey} },
       transformWorkExperiences
     );
-  }, [fetchWorkExperiences, apiUrl]);
+  }, [fetchWorkExperiences, apiUrl, apiKey]);
   return (
     <section id="manageWorkExperiences">
       <Container className="px-5 py-10 mx-auto">

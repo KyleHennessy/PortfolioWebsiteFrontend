@@ -7,7 +7,8 @@ import useHttp from "../../../../hooks/use-http";
 
 const CreateSkill = () => {
   const apiUrlObject = require('../../../../api.json');
-  const apiUrl = apiUrlObject.apiUrl
+  const apiUrl = apiUrlObject.apiUrl;
+  const apiKey = apiUrlObject.apiKey;
 
   const authCtx = useContext(AuthContext);
 
@@ -20,6 +21,7 @@ const CreateSkill = () => {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${authCtx.token}`,
+        "Ocp-Apim-Subscription-Key": apiKey
       },
       body: {
         title: skill.title,

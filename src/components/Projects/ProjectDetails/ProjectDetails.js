@@ -7,7 +7,8 @@ import ProjectDetailContent from "./ProjectDetailContent";
 
 const ProjectDetails = () => {
   const apiUrlObject = require('../../../api.json');
-  const apiUrl = apiUrlObject.apiUrl
+  const apiUrl = apiUrlObject.apiUrl;
+  const apiKey = apiUrlObject.apiKey;
 
   const params = useParams();
   const location = useLocation();
@@ -32,10 +33,10 @@ const ProjectDetails = () => {
     };
 
     fetchProjectDetails(
-      { url: `${apiUrl}/api/Projects/${params.id}` },
+      { url: `${apiUrl}/api/Projects/${params.id}`, headers: {"Ocp-Apim-Subscription-Key": apiKey} },
       transformProject
     );
-  }, [fetchProjectDetails, params.id, apiUrl]);
+  }, [fetchProjectDetails, params.id, apiUrl, apiKey]);
 
   useEffect(() => {
     window.scrollTo(0,0);

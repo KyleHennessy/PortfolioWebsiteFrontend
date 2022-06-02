@@ -1,3 +1,4 @@
 {
-    "apiUrl": "https://localhost:7277"
+    "apiUrl": "https://portfoliowebsitebackend.azure-api.net/v1"
+    
 }

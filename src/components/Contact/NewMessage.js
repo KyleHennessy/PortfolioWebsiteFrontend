@@ -4,7 +4,8 @@ import { useState } from "react";
 
 const NewMessage = () => {
   const apiUrlObject = require('../../api.json');
-  const apiUrl = apiUrlObject.apiUrl
+  const apiUrl = apiUrlObject.apiUrl;
+  const apiKey = apiUrlObject.apiKey;
 
   const { isLoading, error, sendRequest: sendMessageRequest } = useHttp();
   const [createdMessage, setCreatedMessage] = useState({});
@@ -17,7 +18,6 @@ const NewMessage = () => {
       email: emailText,
       message: messageText,
     });
-    console.log(createdMessage);
   };
 
   const enterMessageHandler = async (nameText, emailText, messageText) => {
@@ -26,7 +26,9 @@ const NewMessage = () => {
         url: `${apiUrl}/api/Messages`,
         method: "POST",
         headers: {
+          // "Access-Control-Request-Headers": "Content-Type,Ocp-Apim-Subscription-Key",
           "Content-Type": "application/json",
+          "Ocp-Apim-Subscription-Key": apiKey
         },
         body: { name: nameText, email: emailText, messageText: messageText },
       },

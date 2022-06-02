@@ -6,7 +6,8 @@ import AuthContext from "../../../store/auth-context";
 
 const ManageMessageList = (props) => {
   const apiUrlObject = require('../../../api.json');
-  const apiUrl = apiUrlObject.apiUrl
+  const apiUrl = apiUrlObject.apiUrl;
+  const apiKey = apiUrlObject.apiKey;
 
   const authCtx = useContext(AuthContext);
 
@@ -27,7 +28,8 @@ const ManageMessageList = (props) => {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${authCtx.token}`
+        Authorization: `Bearer ${authCtx.token}`,
+        "Ocp-Apim-Subscription-Key": apiKey
       },
     });
 

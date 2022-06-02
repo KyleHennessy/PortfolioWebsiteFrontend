@@ -14,7 +14,8 @@ import SkillsList from "../../Skills/SkillsList";
 
 const ManageSkills = () => {
   const apiUrlObject = require('../../../api.json');
-  const apiUrl = apiUrlObject.apiUrl
+  const apiUrl = apiUrlObject.apiUrl;
+  const apiKey = apiUrlObject.apiKey;
 
   const [skills, setSkills] = useState([]);
 
@@ -40,8 +41,8 @@ const ManageSkills = () => {
       setSkills(loadedSkills);
     };
 
-    fetchSkills({ url: `${apiUrl}/api/Skills` }, transformSkills);
-  }, [fetchSkills, apiUrl]);
+    fetchSkills({ url: `${apiUrl}/api/Skills`, headers:{"Ocp-Apim-Subscription-Key": apiKey} }, transformSkills);
+  }, [fetchSkills, apiUrl, apiKey]);
 
   return (
     <section id="manageSkills">

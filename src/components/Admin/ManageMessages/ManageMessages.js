@@ -7,7 +7,8 @@ import ManageMessageList from "./ManageMessageList";
 
 const ManageMessages = () => {
   const apiUrlObject = require('../../../api.json');
-  const apiUrl = apiUrlObject.apiUrl
+  const apiUrl = apiUrlObject.apiUrl;
+  const apiKey = apiUrlObject.apiKey;
 
   const [messages, setMessages] = useState([]);
 
@@ -34,11 +35,11 @@ const ManageMessages = () => {
     fetchMessages(
       {
         url: `${apiUrl}/api/Messages`,
-        headers: { Authorization: `Bearer ${authCtx.token}` },
+        headers: { Authorization: `Bearer ${authCtx.token}`, "Ocp-Apim-Subscription-Key": apiKey },
       },
       transformMessages
     );
-  }, [fetchMessages, authCtx.token, apiUrl]);
+  }, [fetchMessages, authCtx.token, apiUrl, apiKey]);
   return (
     <section id="manageMessages">
       <Container className="px-5 py-10 mx-auto">

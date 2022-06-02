@@ -17,7 +17,9 @@ import ManageProjectList from "./ManageProjectList";
 
 const ManageProjects = () => {
   const apiUrlObject = require('../../../api.json');
-  const apiUrl = apiUrlObject.apiUrl
+  const apiUrl = apiUrlObject.apiUrl;
+  const apiKey = apiUrlObject.apiKey;
+
   const [projects, setProjects] = useState([]);
 
   const { isLoading, error, sendRequest: fetchProjects } = useHttp();
@@ -51,10 +53,10 @@ const ManageProjects = () => {
     };
 
     fetchProjects(
-      { url: `${apiUrl}/api/Projects` },
+      { url: `${apiUrl}/api/Projects`, headers:{"Ocp-Apim-Subscription-Key": apiKey} },
       transformProjects
     );
-  }, [fetchProjects, apiUrl]);
+  }, [fetchProjects, apiUrl, apiKey]);
   return (
     <section id="manageProjects">
       <Container className="px-5 py-10 mx-auto">

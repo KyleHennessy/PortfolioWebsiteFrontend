@@ -8,7 +8,9 @@ import classes from "./ManageWorkExperienceItem.module.css";
 
 const ManageWorkExperienceItem = (props) => {
   const apiUrlObject = require('../../../api.json');
-  const apiUrl = apiUrlObject.apiUrl
+  const apiUrl = apiUrlObject.apiUrl;
+  const apiKey = apiUrlObject.apiKey;
+
   const authCtx = useContext(AuthContext);
 
   const { isLoading, sendRequest: deleteWorkExperienceRequest } = useHttp();
@@ -25,6 +27,7 @@ const ManageWorkExperienceItem = (props) => {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${authCtx.token}`,
+        "Ocp-Apim-Subscription-Key": apiKey
       },
     });
 

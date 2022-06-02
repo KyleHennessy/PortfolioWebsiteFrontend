@@ -6,7 +6,9 @@ import useHttp from "../../hooks/use-http";
 
 const WorkExperiences = () => {
   const apiUrlObject = require('../../api.json');
-  const apiUrl = apiUrlObject.apiUrl
+  const apiUrl = apiUrlObject.apiUrl;
+  const apiKey = apiUrlObject.apiKey;
+  
   const [workExperiences, setWorkExperiences] = useState([]);
 
   const { isLoading, error, sendRequest: fetchWorkExperiences } = useHttp();
@@ -30,10 +32,10 @@ const WorkExperiences = () => {
     };
 
     fetchWorkExperiences(
-      { url: `${apiUrl}/api/WorkExperiences` },
+      { url: `${apiUrl}/api/WorkExperiences`, headers: {"Ocp-Apim-Subscription-Key": apiKey} },
       transformWorkExperiences
     );
-  }, [fetchWorkExperiences, apiUrl]);
+  }, [fetchWorkExperiences, apiUrl, apiKey]);
   return (
     <section id="work-experience">
       <Container className="px-5 py-10 mx-auto">

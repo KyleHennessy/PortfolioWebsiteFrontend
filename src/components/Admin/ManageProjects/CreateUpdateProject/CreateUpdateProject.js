@@ -9,7 +9,8 @@ import { useState } from "react";
 
 const CreateUpdateProject = () => {
   const apiUrlObject = require('../../../../api.json');
-  const apiUrl = apiUrlObject.apiUrl
+  const apiUrl = apiUrlObject.apiUrl;
+  const apiKey = apiUrlObject.apiKey;
 
   const params = useParams();
 
@@ -41,11 +42,11 @@ const CreateUpdateProject = () => {
       };
 
       getProjectRequest(
-        { url: `${apiUrl}/api/Projects/${params.id}` },
+        { url: `${apiUrl}/api/Projects/${params.id}`, headers:{"Ocp-Apim-Subscription-Key": apiKey} },
         transformProject
       );
     }
-  }, [getProjectRequest, params.id, apiUrl]);
+  }, [getProjectRequest, params.id, apiUrl, apiKey]);
 
   const sendProjectHandler = async (project) => {
     const detailImages = new Array(0);
@@ -90,6 +91,7 @@ const CreateUpdateProject = () => {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${authCtx.token}`,
+        "Ocp-Apim-Subscription-Key": apiKey
       },
       body: body,
     });

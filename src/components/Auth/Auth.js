@@ -6,14 +6,17 @@ import AuthForm from "./AuthForm";
 
 const Auth = () => {
   const apiUrlObject = require('../../api.json');
-  const apiUrl = apiUrlObject.apiUrl
+  const apiUrl = apiUrlObject.apiUrl;
+  const apiKey = apiUrlObject.apiKey;
+
   const { isLoading, error, sendRequest: sendAuthRequest } = useHttp();
   const authCtx = useContext(AuthContext);
   const history = useHistory();
 
   const loginAdmin = (emailText, passwordText, loginData) => {
     const returnedToken = loginData.token;
-    const expirationTime = new Date(loginData.expires);
+    const expirationBeforeAddHour = new Date(loginData.expires);
+    const expirationTime = expirationBeforeAddHour.setHours(expirationBeforeAddHour.getHours() + 1);
     const loggedInUser = {
       token: returnedToken,
       expires: expirationTime,
@@ -32,6 +35,7 @@ const Auth = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Ocp-Apim-Subscription-Key": apiKey
         },
         body: { email: email, password: password },
       },
