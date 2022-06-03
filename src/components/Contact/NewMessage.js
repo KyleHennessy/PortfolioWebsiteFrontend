@@ -26,9 +26,8 @@ const NewMessage = () => {
         url: `${apiUrl}/api/Messages`,
         method: "POST",
         headers: {
-          // "Access-Control-Request-Headers": "Content-Type,Ocp-Apim-Subscription-Key",
+          "Ocp-Apim-Subscription-Key": apiKey,
           "Content-Type": "application/json",
-          "Ocp-Apim-Subscription-Key": apiKey
         },
         body: { name: nameText, email: emailText, messageText: messageText },
       },

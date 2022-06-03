@@ -16,7 +16,7 @@ const Auth = () => {
   const loginAdmin = (emailText, passwordText, loginData) => {
     const returnedToken = loginData.token;
     const expirationBeforeAddHour = new Date(loginData.expires);
-    const expirationTime = expirationBeforeAddHour.setHours(expirationBeforeAddHour.getHours() + 1);
+    const expirationTime = new Date(expirationBeforeAddHour.setHours(expirationBeforeAddHour.getHours() + 1));
     const loggedInUser = {
       token: returnedToken,
       expires: expirationTime,

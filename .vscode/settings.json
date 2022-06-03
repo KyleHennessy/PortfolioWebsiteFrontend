@@ -1,0 +1,8 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/8447cd97-9b29-4e63-8b0f-801e48fae118/microsoft.web/sites/subscriptions/8447cd97-9b29-4e63-8b0f-801e48fae118/resourceGroups/PortfolioWebsiteResourceGroup/providers/Microsoft.Web/sites/kylehennessyportfolio",
+    "appService.deploySubpath": ".",
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ]
+}
