@@ -27,6 +27,17 @@ h2 {
   width: 200px;
 }
 
+.heroImage{
+  height: 400px;
+  width: 400px;
+}
+
+@media only screen and (max-width: 600px){
+  .heroImage{
+    height: 200px;
+    width:200px;
+  }
+}
 .social{
   height:50px;
   width:50px;
@@ -55,35 +66,6 @@ header{
   position: sticky; top:0;
   z-index: 1000;
 }
-
-/* .fade-enter{
-  opacity: 0;
-  z-index: 1;
-}
-
-.fade-enter.fade-enter-active{
-  opacity: 1;
-  transition: opacity 250ms ease-in;
-} */
-
-
-/* .example-enter {
-  opacity: 0.01;
-}
-
-.example-enter.example-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
-
-.example-leave {
-  opacity: 1;
-}
-
-.example-leave.example-leave-active {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in;
-} */
 
 .page {
   position: absolute;

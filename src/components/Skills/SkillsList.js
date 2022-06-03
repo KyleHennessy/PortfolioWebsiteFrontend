@@ -7,7 +7,7 @@ const SkillsList = (props) => {
 
   if(props.skills.length > 0){
     skillList = (
-      <Row xs={2} md={3} className="g-4">
+      <Row xs={1} md={3} className="g-4">
         {props.skills.map((skill) => (
           <Col xs key={skill.id}>
             <SkillItem key={skill.id} id={skill.id} title={skill.title} />
@@ -25,7 +25,7 @@ const SkillsList = (props) => {
 
   if(props.loading){
     content = (
-      <Row md={3} className="g-4">
+      <Row xs={1} md={3} className="g-4">
         <Col xs>
           <PlaceholderCard isSkill={true} />
         </Col>

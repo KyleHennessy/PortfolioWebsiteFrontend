@@ -22,7 +22,6 @@ const ManageMessageList = (props) => {
   );
 
   const deleteHandler = async (id) =>{
-    console.log("DELETED");
     deleteMessageRequest({
       url: `${apiUrl}/api/Messages/${id}`,
       method: "DELETE",

@@ -1,17 +1,15 @@
 .header {
-    width: 100%;
-    height: 5rem;
-    display: flex;
+    padding: 10px !important;
     align-items: center;
     justify-content: space-between;
-    background-color: #1a80f3;
+    background-color: #1a80f3 ;
     padding: 0 10%;
   }
   
   .logo {
-    font-size: 2rem;
-    color: white;
-    font-weight: bold;
+    font-size: 2rem !important;
+    color: white !important;
+    font-weight: bold !important;
   }
   
   .header ul {
@@ -46,9 +44,14 @@
     margin-left: 0.5rem;
   }
 
+  .linkNav{
+    float:right;
+  }
   .link{
-    font-size: 1.5rem;
-    cursor: pointer;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin-left:30px;
+    font-size: 1.5rem !important;
+    cursor: pointer !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    color: white !important;
   }

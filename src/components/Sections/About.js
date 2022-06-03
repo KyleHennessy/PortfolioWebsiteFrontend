@@ -16,7 +16,7 @@ const About = () => {
             </p>
             <div className="aboutme-links">
               <Button variant="success" onClick={() => window.scrollTo(0, 10000)}>Contact Me</Button> &nbsp; &nbsp;
-              <Button variant="success" onClick={() => window.scrollTo(0, 2200)}>Previous Experience</Button>
+              <Button variant="success" onClick={() => window.scrollTo(0, 1900)}>Previous Experience</Button>
             </div>
           </Col>
           <Col>
@@ -25,8 +25,6 @@ const About = () => {
                 className="heroImage"
                 alt="hero"
                 src={require("../../assets/programing.png")}
-                length="400px"
-                width="400px"
               />
             </div>
           </Col>

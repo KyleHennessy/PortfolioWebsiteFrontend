@@ -103,7 +103,6 @@ const CreateUpdateProjectForm = (props) => {
     const selectedSkill = loadedSkills.find(s => s.id === skillId);
     if (event.target.checked) {
       setInputSkills((enteredSkills) => [...enteredSkills, selectedSkill]);
-      console.log(enteredSkills);
     } else {
       setInputSkills(enteredSkills.filter((s) => s.title !== selectedSkill.title));
     }
