@@ -41,7 +41,7 @@ const WorkExperienceList = (props) => {
 
   if (props.loading) {
     content = (
-      <Row md={2} className="g-4">
+      <Row xs={1} md={2} className="g-4">
         <Col xs>
           <PlaceholderCard isSkill={false} />
         </Col>

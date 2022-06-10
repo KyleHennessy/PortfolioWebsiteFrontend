@@ -35,10 +35,6 @@ const MessageForm = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    console.log(enteredName);
-    console.log(enteredEmail);
-    console.log(enteredMessage);
-
     if (enteredName.trim() === "" || enteredName.trim().length > 100) {
       setEnteredNameIsValid(false);
 
