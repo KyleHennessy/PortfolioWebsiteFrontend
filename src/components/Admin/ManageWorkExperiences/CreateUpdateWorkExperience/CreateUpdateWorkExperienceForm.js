@@ -11,6 +11,7 @@ import {
 import { useHistory } from "react-router-dom";
 import useHttp from "../../../../hooks/use-http";
 import classes from "./CreateUpdateWorkExperienceForm.module.css";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 const CreateUpdateWorkExperienceForm = (props) => {
   const apiUrlObject = require('../../../../api.json');
@@ -137,8 +138,10 @@ const CreateUpdateWorkExperienceForm = (props) => {
                     <Form.Control
                       value={enteredDescription}
                       required
-                      onChange={descriptionInputChangeHandler}
                       type="text"
+                      onChange={descriptionInputChangeHandler}
+                      as="textarea"
+                      style={{height:"150px"}}
                       placeholder="Enter Description"
                     />
                   </FloatingLabel>
@@ -201,7 +204,7 @@ const CreateUpdateWorkExperienceForm = (props) => {
           <Card className={classes.card}>
             <Card.Header>{enteredTitle}</Card.Header>
             <Card.Body className="d-flex flex-column">
-              <Card.Text>{enteredDescription}</Card.Text>
+              <Card.Text><ReactMarkdown className="markdown">{enteredDescription}</ReactMarkdown></Card.Text>
               <div className="mt-auto">
                 <h4>Skills Used:</h4>
                 <Row xs={2} md={3} className="g-4">

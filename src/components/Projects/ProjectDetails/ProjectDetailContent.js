@@ -11,6 +11,8 @@ import { Link } from "react-router-dom";
 
 import classes from "./ProjectDetailContent.module.css";
 
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+
 const ProjectDetailContent = (props) => {
   return (
     <div>
@@ -56,7 +58,7 @@ const ProjectDetailContent = (props) => {
 
       <Card>
         <Card.Body>
-          <Card.Text>{props.description}</Card.Text>
+          <Card.Text><ReactMarkdown className="markdown">{props.description}</ReactMarkdown></Card.Text>
           <Card.Text>Project Links:</Card.Text>
           <a href={props.sourceCodeUrl}>
             <OverlayTrigger

@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 
 import classes from "./ProjectItem.module.css";
 
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+
 const ProjectItem = (props) => {
   const [isGifShown, setIsGifShown] = useState(false);
 
@@ -35,7 +37,7 @@ const ProjectItem = (props) => {
         )}
         <Card.Body>
           <Card.Title>{props.title}</Card.Title>
-          <Card.Text>{props.summary}</Card.Text>
+          <Card.Text><ReactMarkdown className="markdown">{props.summary}</ReactMarkdown></Card.Text>
         </Card.Body>
         <Card.Footer>
           <Button variant="light">Learn more</Button>

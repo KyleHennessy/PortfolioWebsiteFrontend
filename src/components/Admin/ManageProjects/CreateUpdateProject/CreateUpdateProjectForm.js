@@ -17,6 +17,7 @@ import useHttp from "../../../../hooks/use-http";
 
 import classes from "./CreateUpdateProject.module.css";
 import { useHistory } from "react-router-dom";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 const CreateUpdateProjectForm = (props) => {
   const apiUrlObject = require('../../../../api.json');
@@ -174,6 +175,8 @@ const CreateUpdateProjectForm = (props) => {
                       required
                       onChange={summaryInputChangeHandler}
                       type="text"
+                      as="textarea"
+                      style={{height:"150px"}}
                       placeholder="Enter Summary"
                     />
                   </FloatingLabel>
@@ -189,6 +192,8 @@ const CreateUpdateProjectForm = (props) => {
                       required
                       onChange={descriptionInputChangeHandler}
                       type="text"
+                      as="textarea"
+                      style={{height:"150px"}}
                       placeholder="Enter Description"
                     />
                   </FloatingLabel>
@@ -326,7 +331,7 @@ const CreateUpdateProjectForm = (props) => {
             )}
             <Card.Body>
               <Card.Title>{enteredTitle}</Card.Title>
-              <Card.Text>{enteredSummary}</Card.Text>
+              <Card.Text><ReactMarkdown className="markdown">{enteredSummary}</ReactMarkdown></Card.Text>
             </Card.Body>
           </Card>
         </Col>

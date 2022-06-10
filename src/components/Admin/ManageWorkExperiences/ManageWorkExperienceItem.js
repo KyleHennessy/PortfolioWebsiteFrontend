@@ -3,6 +3,7 @@ import { Card, Row, Col, Button, ButtonGroup, Spinner } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import useHttp from "../../../hooks/use-http";
 import AuthContext from "../../../store/auth-context";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 import classes from "./ManageWorkExperienceItem.module.css";
 
@@ -44,7 +45,7 @@ const ManageWorkExperienceItem = (props) => {
     <Card className={classes.card}>
       <Card.Header>{props.title}</Card.Header>
       <Card.Body className="d-flex flex-column">
-        <Card.Text>{props.description}</Card.Text>
+        <Card.Text><ReactMarkdown className="markdown">{props.description}</ReactMarkdown></Card.Text>
         {props.skillsUsed && (
           <div className="mt-auto">
             <h4>Skills used:</h4>

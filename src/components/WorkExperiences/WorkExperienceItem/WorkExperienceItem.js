@@ -1,4 +1,5 @@
 import { Card, Col, Row } from "react-bootstrap";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 import classes from "./WorkExperienceItem.module.css";
 
@@ -11,7 +12,9 @@ const WorkExperienceItem = (props) => {
     <Card className={classes.card}>
       <Card.Header>{props.title}</Card.Header>
       <Card.Body className="d-flex flex-column">
-        <Card.Text>{props.description}</Card.Text>
+        <Card.Text>
+          <ReactMarkdown className="markdown">{props.description}</ReactMarkdown>
+        </Card.Text>
         {props.skillsUsed && (
           <div className="mt-auto">
             <h4>Skills used:</h4>
@@ -25,7 +28,7 @@ const WorkExperienceItem = (props) => {
           </div>
         )}
       </Card.Body>
-      
+
       {endDate instanceof Date && (
         <Card.Footer>
           {startDate.toLocaleString("default", { month: "long" })}{" "}

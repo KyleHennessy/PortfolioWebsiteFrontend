@@ -8,6 +8,7 @@ import classes from "./ManageProjectItem.module.css";
 import AuthContext from "../../../store/auth-context";
 import useHttp from "../../../hooks/use-http";
 import { ButtonGroup, Spinner } from "react-bootstrap";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 const ManageProjectItem = (props) => {
   const apiUrlObject = require('../../../api.json');
@@ -71,7 +72,7 @@ const ManageProjectItem = (props) => {
       )}
       <Card.Body>
         <Card.Title>{props.title}</Card.Title>
-        <Card.Text>{props.summary}</Card.Text>
+        <Card.Text><ReactMarkdown className="markdown">{props.summary}</ReactMarkdown></Card.Text>
       </Card.Body>
       <ButtonGroup>
         <Button
