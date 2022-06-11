@@ -44,7 +44,7 @@ const AllProjects = () => {
 
   return (
     <section id="projects">
-      <Container className="px-5 py-10 mx-auto">
+      <Container>
         <div className="text-center">
           <AiOutlineHistory className="w-10 inline-block mb-4 cap" />
 

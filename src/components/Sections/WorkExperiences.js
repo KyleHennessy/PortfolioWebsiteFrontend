@@ -38,7 +38,7 @@ const WorkExperiences = () => {
   }, [fetchWorkExperiences, apiUrl, apiKey]);
   return (
     <section id="work-experience">
-      <Container className="px-5 py-10 mx-auto">
+      <Container>
         <div className="text-center">
           <MdWork className="w-10 inline-block mb-4 cap" />
 

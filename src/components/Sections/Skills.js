@@ -30,7 +30,7 @@ const Skills = () => {
   }, [fetchSkills, apiUrl, apiKey]);
   return (
     <section id="skills">
-      <Container className="px-5 py-10 mx-auto">
+      <Container>
         <div className="text-center">
           <MdComputer className="w-10 inline-block mb-4 cap" />
 
