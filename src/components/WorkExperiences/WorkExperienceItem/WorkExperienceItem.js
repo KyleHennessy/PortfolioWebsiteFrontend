@@ -12,9 +12,9 @@ const WorkExperienceItem = (props) => {
     <Card className={classes.card}>
       <Card.Header>{props.title}</Card.Header>
       <Card.Body className="d-flex flex-column">
-        <Card.Text>
-          <ReactMarkdown className="markdown">{props.description}</ReactMarkdown>
-        </Card.Text>
+        <ReactMarkdown className="markdown card-text">
+          {props.description}
+        </ReactMarkdown>
         {props.skillsUsed && (
           <div className="mt-auto">
             <h4>Skills used:</h4>

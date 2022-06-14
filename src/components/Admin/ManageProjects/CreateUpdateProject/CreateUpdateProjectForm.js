@@ -410,7 +410,7 @@ const CreateUpdateProjectForm = (props) => {
 
         <Card>
           <Card.Body>
-            <Card.Text>{enteredDescription}</Card.Text>
+            <Card.Text><ReactMarkdown>{enteredDescription}</ReactMarkdown></Card.Text>
             <Card.Text>Project Links:</Card.Text>
             {enteredSourceCode && (
               <a href={enteredSourceCode}>

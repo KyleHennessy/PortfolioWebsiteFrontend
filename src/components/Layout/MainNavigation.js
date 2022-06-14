@@ -30,12 +30,12 @@ const MainNavigation = () => {
                     </Nav.Item>
                     {location.pathname === '/' && (
                         <Nav.Item>
-                            <p className={classes.link} onClick={() => window.scrollTo(0,450)}>Projects</p>
+                            <p className={classes.link} onClick={() => window.scrollTo(0,530)}>Projects</p>
                         </Nav.Item>
                     )}
                      {location.pathname === '/' && (
                         <Nav.Item>
-                            <p className={classes.link} onClick={() => window.scrollTo(0, 1300)}>Skills</p>
+                            <p className={classes.link} onClick={() => window.scrollTo(0, 1600)}>Skills</p>
                         </Nav.Item>
                     )}
                     {isLoggedIn && (
