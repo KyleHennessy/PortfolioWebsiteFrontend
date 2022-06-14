@@ -50,7 +50,7 @@ const ProjectDetails = () => {
         </Alert>
       )}
       
-      <Container className="px-5 py-10 mx-auto">
+      <Container>
       {isLoading && (<PlaceholderCard isSkill={false}/>)}
       {!error && !isLoading && (
         
