@@ -52,7 +52,7 @@ const AllProjects = () => {
             Projects
           </h1>
           <p>
-            Here is all of the projects that I have worked on either in my spare
+            Here are all of the projects that I have worked on either in my spare
             time or as part of my education.<br/> 
             Click on any of them to find out more details!
           </p>
