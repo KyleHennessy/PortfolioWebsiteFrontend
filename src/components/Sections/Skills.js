@@ -38,8 +38,8 @@ const Skills = () => {
             Skills
           </h1>
           <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
-            These are the skills and technologies that I have learned and have experience developing with. I am always open to learning more to open my mind and
-            adding more skills to my skill-set.
+            These are the skills and technologies that I have learned and have experience developing with. <br/>
+            I am always open to expanding my knowledge and adding more skills to my skill-set.
           </p>
         </div>
         <SkillsList
