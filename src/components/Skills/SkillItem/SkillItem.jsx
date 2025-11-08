@@ -1,5 +1,6 @@
 import { Card } from "react-bootstrap";
 import classes from "./SkillItem.module.css";
+import checkImage from "../../../assets/check.png";
 
 const SkillItem = (props) => {
   return (
@@ -8,7 +9,7 @@ const SkillItem = (props) => {
         <Card.Title className={classes.title}>{props.title}</Card.Title>
         <img
           className={classes.check}
-          src={require("../../../assets/check.png")}
+          src={checkImage}
           alt=""
         />
       </Card.Body>

@@ -1,4 +1,5 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
+import programingImage from "../../assets/programing.png";
 
 const About = () => {
   return (
@@ -24,7 +25,7 @@ const About = () => {
               <img
                 className="heroImage"
                 alt="hero"
-                src={require("../../assets/programing.png")}
+                src={programingImage}
               />
             </div>
           </Col>

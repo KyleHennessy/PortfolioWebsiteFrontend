@@ -11,9 +11,9 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import useHttp from "../../../hooks/use-http";
 import SkillsList from "../../Skills/SkillsList";
+import apiUrlObject from '../../../api.json';
 
 const ManageSkills = () => {
-  const apiUrlObject = require('../../../api.json');
   const apiUrl = apiUrlObject.apiUrl;
   const apiKey = apiUrlObject.apiKey;
 

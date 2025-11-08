@@ -5,9 +5,9 @@ import useHttp from "../../../../hooks/use-http";
 import AuthContext from "../../../../store/auth-context";
 import { Link } from "react-router-dom";
 import CreateUpdateWorkExperienceForm from "./CreateUpdateWorkExperienceForm";
+import apiUrlObject from '../../../../api.json';
 
 const CreateUpdateWorkExperience = () => {
-  const apiUrlObject = require('../../../../api.json');
   const apiUrl = apiUrlObject.apiUrl;
   const apiKey = apiUrlObject.apiKey;
 

@@ -4,9 +4,9 @@ import useHttp from "../../hooks/use-http";
 import SkillsList from "../Skills/SkillsList";
 import { Container } from "react-bootstrap";
 import { MdComputer } from "react-icons/md";
+import apiUrlObject from '../../api.json';
 
 const Skills = () => {
-  const apiUrlObject = require('../../api.json');
   const apiUrl = apiUrlObject.apiUrl
   const apiKey = apiUrlObject.apiKey;
 

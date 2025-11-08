@@ -3,9 +3,9 @@ import WorkExperienceList from "../WorkExperiences/WorkExperienceList";
 import { Container } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import useHttp from "../../hooks/use-http";
+import apiUrlObject from '../../api.json';
 
 const WorkExperiences = () => {
-  const apiUrlObject = require('../../api.json');
   const apiUrl = apiUrlObject.apiUrl;
   const apiKey = apiUrlObject.apiKey;
   

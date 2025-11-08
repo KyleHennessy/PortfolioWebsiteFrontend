@@ -9,6 +9,7 @@ import {
   Button,
 } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
+import checkImage from "../../../../assets/check.png";
 
 import classes from "./CreateSkillForm.module.css";
 
@@ -63,7 +64,7 @@ const CreateSkillForm = (props) => {
               <Card.Title className={classes.title}>{enteredTitle}</Card.Title>
               <img
                 className={classes.check}
-                src={require("../../../../assets/check.png")}
+                src={checkImage}
                 alt="check"
               />
             </Card.Body>

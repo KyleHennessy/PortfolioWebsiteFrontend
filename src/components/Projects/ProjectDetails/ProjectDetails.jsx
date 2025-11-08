@@ -4,9 +4,9 @@ import { useParams, useLocation } from "react-router-dom";
 import useHttp from "../../../hooks/use-http";
 import PlaceholderCard from "../../UI/PlaceholderCard";
 import ProjectDetailContent from "./ProjectDetailContent";
+import apiUrlObject from '../../../api.json';
 
 const ProjectDetails = () => {
-  const apiUrlObject = require('../../../api.json');
   const apiUrl = apiUrlObject.apiUrl;
   const apiKey = apiUrlObject.apiKey;
 

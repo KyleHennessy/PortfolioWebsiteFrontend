@@ -14,9 +14,9 @@ import { useHistory } from "react-router-dom";
 
 import useHttp from "../../../hooks/use-http";
 import ManageProjectList from "./ManageProjectList";
+import apiUrlObject from '../../../api.json';
 
 const ManageProjects = () => {
-  const apiUrlObject = require('../../../api.json');
   const apiUrl = apiUrlObject.apiUrl;
   const apiKey = apiUrlObject.apiKey;
 

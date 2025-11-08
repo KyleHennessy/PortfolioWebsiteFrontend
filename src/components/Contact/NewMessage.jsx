@@ -1,9 +1,9 @@
 import MessageForm from "./MessageForm";
 import useHttp from "../../hooks/use-http";
 import { useState } from "react";
+import apiUrlObject from '../../api.json';
 
 const NewMessage = () => {
-  const apiUrlObject = require('../../api.json');
   const apiUrl = apiUrlObject.apiUrl;
   const apiKey = apiUrlObject.apiKey;
 

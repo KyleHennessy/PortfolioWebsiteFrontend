@@ -4,9 +4,9 @@ import useHttp from '../../hooks/use-http';
 import ProjectsList from "../Projects/ProjectsList";
 import { AiOutlineHistory } from "react-icons/ai";
 import { Container } from "react-bootstrap";
+import apiUrlObject from '../../api.json';
 
 const AllProjects = () => {
-  const apiUrlObject = require('../../api.json');
   const apiUrl = apiUrlObject.apiUrl;
   const apiKey = apiUrlObject.apiKey;
 

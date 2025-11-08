@@ -18,9 +18,10 @@ import useHttp from "../../../../hooks/use-http";
 import classes from "./CreateUpdateProject.module.css";
 import { useHistory } from "react-router-dom";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import apiUrlObject from "../../../../api.json";
+import placeholderImage from "../../../../assets/placeholder.png";
 
 const CreateUpdateProjectForm = (props) => {
-  const apiUrlObject = require('../../../../api.json');
   const apiUrl = apiUrlObject.apiUrl;
   const apiKey = apiUrlObject.apiKey;
 
@@ -353,7 +354,7 @@ const CreateUpdateProjectForm = (props) => {
               )}
               {!enteredDemo && (
                 <Image
-                  src={require("../../../../assets/placeholder.png")}
+                  src={placeholderImage}
                   height={535}
                   width={900}
                   className={classes.detailImages}
@@ -375,7 +376,7 @@ const CreateUpdateProjectForm = (props) => {
                   )}
                   {!enteredDetailImage1 && (
                     <Image
-                      src={require("../../../../assets/placeholder.png")}
+                      src={placeholderImage}
                       height={255}
                       width={400}
                       className={classes.detailImages}
@@ -395,7 +396,7 @@ const CreateUpdateProjectForm = (props) => {
                   )}
                   {!enteredDetailImage2 && (
                     <Image
-                      src={require("../../../../assets/placeholder.png")}
+                      src={placeholderImage}
                       height={255}
                       width={400}
                       className={classes.detailImages}

@@ -6,9 +6,9 @@ import CreateUpdateProjectForm from "./CreateUpdateProjectForm";
 import AuthContext from "../../../../store/auth-context";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
+import apiUrlObject from '../../../../api.json';
 
 const CreateUpdateProject = () => {
-  const apiUrlObject = require('../../../../api.json');
   const apiUrl = apiUrlObject.apiUrl;
   const apiKey = apiUrlObject.apiKey;
 

@@ -12,9 +12,9 @@ import { useHistory } from "react-router-dom";
 import useHttp from "../../../../hooks/use-http";
 import classes from "./CreateUpdateWorkExperienceForm.module.css";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import apiUrlObject from '../../../../api.json';
 
 const CreateUpdateWorkExperienceForm = (props) => {
-  const apiUrlObject = require('../../../../api.json');
   const apiUrl = apiUrlObject.apiUrl;
   const apiKey = apiUrlObject.apiKey;
 

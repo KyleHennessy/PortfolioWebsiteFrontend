@@ -4,11 +4,11 @@ import { useHistory } from "react-router-dom";
 import useHttp from "../../../hooks/use-http";
 import AuthContext from "../../../store/auth-context";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import apiUrlObject from '../../../api.json';
 
 import classes from "./ManageWorkExperienceItem.module.css";
 
 const ManageWorkExperienceItem = (props) => {
-  const apiUrlObject = require('../../../api.json');
   const apiUrl = apiUrlObject.apiUrl;
   const apiKey = apiUrlObject.apiKey;
 

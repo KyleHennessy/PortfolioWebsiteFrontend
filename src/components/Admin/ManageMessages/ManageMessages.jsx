@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import useHttp from "../../../hooks/use-http";
 import AuthContext from "../../../store/auth-context";
 import ManageMessageList from "./ManageMessageList";
+import apiUrlObject from '../../../api.json';
 
 const ManageMessages = () => {
-  const apiUrlObject = require('../../../api.json');
   const apiUrl = apiUrlObject.apiUrl;
   const apiKey = apiUrlObject.apiKey;
 

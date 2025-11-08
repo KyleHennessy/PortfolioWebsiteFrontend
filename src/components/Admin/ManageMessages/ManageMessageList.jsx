@@ -3,9 +3,9 @@ import { Alert, Button, Spinner, Table } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import useHttp from "../../../hooks/use-http";
 import AuthContext from "../../../store/auth-context";
+import apiUrlObject from '../../../api.json';
 
 const ManageMessageList = (props) => {
-  const apiUrlObject = require('../../../api.json');
   const apiUrl = apiUrlObject.apiUrl;
   const apiKey = apiUrlObject.apiKey;
 
