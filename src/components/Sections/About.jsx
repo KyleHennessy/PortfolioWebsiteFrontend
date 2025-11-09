@@ -1,5 +1,5 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
-import programingImage from "../../assets/programing.png";
+import kyleImage from "../../assets/kyle.jpg";
 import classes from "./About.module.css";
 
 const About = () => {
@@ -24,13 +24,11 @@ const About = () => {
           <Col lg={6} md={12}>
             <div className={classes.content}>
               <h1 className={classes.title}>
-                Hi, my name is Kyle and I am a Software Engineer!
+                I'm Kyle Hennessy and I am a Full Stack Software Engineer
               </h1>
               <p className={classes.description}>
-                I developed this website from scratch using React and .NET Core to
-                showcase my experience and skills as a Software Engineer! <br />
-                I have a great interest in technology in general and am always
-                open to new experiences. <br />
+                Here you can see what I am working on, my previous work experiences, and my technical skills.<br />
+                I have a great interest in technology and am always open to new experiences. <br />
                 Feel free to have a look around to learn more about me!
               </p>
               <div className={classes.buttons}>
@@ -48,7 +46,7 @@ const About = () => {
               <img
                 className={classes.heroImage}
                 alt="hero"
-                src={programingImage}
+                src={kyleImage}
               />
             </div>
           </Col>
