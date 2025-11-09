@@ -1,0 +1,101 @@
+.contact {
+  padding: 4rem 0;
+}
+
+.contactInfo {
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.contactInfo:hover {
+  background: rgba(30, 41, 59, 0.8);
+  border-color: var(--primary-color);
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.2);
+}
+
+.infoSection {
+  margin-bottom: 2rem;
+}
+
+.infoSection:last-child {
+  margin-bottom: 0;
+}
+
+.infoTitle {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary-light);
+  margin-bottom: 0.75rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.infoText {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.infoLink {
+  color: var(--primary-light);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.infoLink:hover {
+  color: var(--primary-color);
+  transform: translateX(5px);
+}
+
+.socialLinks {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.messageSection {
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.messageSection:hover {
+  background: rgba(30, 41, 59, 0.8);
+  border-color: var(--primary-color);
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.2);
+}
+
+.messageTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.messageDescription {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .contactInfo,
+  .messageSection {
+    margin-bottom: 2rem;
+  }
+}

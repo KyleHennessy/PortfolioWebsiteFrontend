@@ -39,23 +39,23 @@ const WorkExperiences = () => {
   return (
     <section id="work-experience">
       <Container>
-        <div className="text-center">
-          <MdWork className="w-10 inline-block mb-4 cap" />
+        <div className="section-title">
+          <MdWork className="cap" />
 
-          <h1 className="sm:text-4xl text-3xl font-medium title-font mb-4">
+          <h1>
             Work Experience
           </h1>
-          <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
+          <p>
             Here are all of my previous and current work experiences as a Software
             Developer in the industry!
           </p>
-          <WorkExperienceList
-            workExperiences={workExperiences}
-            loading={isLoading}
-            error={error}
-            onFetch={fetchWorkExperiences}
-          />
         </div>
+        <WorkExperienceList
+          workExperiences={workExperiences}
+          loading={isLoading}
+          error={error}
+          onFetch={fetchWorkExperiences}
+        />
       </Container>
     </section>
   );

@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import classes from "./ProjectItem.module.css";
 
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
-import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
 const ProjectItem = (props) => {
   const [isGifShown, setIsGifShown] = useState(false);
@@ -19,47 +18,43 @@ const ProjectItem = (props) => {
   };
 
   return (
-    <OverlayTrigger
-      trigger={["hover", "focus"]}
-      placement="top"
-      delay={{ show: 10, hide: 0 }}
-      overlay={<Tooltip>Click Me!</Tooltip>}
+    <Link
+      to={`/project-details/${props.id}`}
+      className={classes.cardLink}
+      onMouseEnter={showGifHandler}
+      onMouseLeave={hideGifHandler}
     >
-      <Link
-        to={`/project-details/${props.id}`}
-        onMouseEnter={showGifHandler}
-        onMouseLeave={hideGifHandler}
-      >
-        <Card className={classes.card}>
-          {isGifShown && (
-            <Card.Img
+      <Card className={classes.card}>
+        <div className={classes.imageContainer}>
+          {isGifShown && props.previewUrl && (
+            <img
               className={classes.preview}
-              id={classes.preview}
-              alt="homer"
+              alt="preview"
               src={props.previewUrl}
             />
           )}
-          {!isGifShown && (
-            <Card.Img
+          {(!isGifShown || !props.previewUrl) && (
+            <img
               className={classes.cardImage}
               src={props.thumbnailUrl}
               alt={props.title}
             />
           )}
-          <Card.Body>
-            <Card.Title>{props.title}</Card.Title>
-            <Card.Text>
-              <ReactMarkdown className="markdown">
-                {props.summary}
-              </ReactMarkdown>
-            </Card.Text>
-          </Card.Body>
-          <Card.Footer>
-            <Button variant="light">Learn more</Button>
-          </Card.Footer>
-        </Card>
-      </Link>
-    </OverlayTrigger>
+          <div className={classes.imageOverlay}></div>
+        </div>
+        <Card.Body className={classes.cardBody}>
+          <Card.Title className={classes.cardTitle}>{props.title}</Card.Title>
+          <Card.Text className={classes.cardText}>
+            <ReactMarkdown className="markdown">
+              {props.summary}
+            </ReactMarkdown>
+          </Card.Text>
+        </Card.Body>
+        <Card.Footer className={classes.cardFooter}>
+          <Button className={classes.learnMoreBtn}>Learn more</Button>
+        </Card.Footer>
+      </Card>
+    </Link>
   );
 };
 

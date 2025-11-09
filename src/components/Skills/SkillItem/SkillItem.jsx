@@ -4,13 +4,13 @@ import checkImage from "../../../assets/check.png";
 
 const SkillItem = (props) => {
   return (
-    <Card>
-      <Card.Body>
+    <Card className={classes.card}>
+      <Card.Body className={classes.cardBody}>
         <Card.Title className={classes.title}>{props.title}</Card.Title>
         <img
           className={classes.check}
           src={checkImage}
-          alt=""
+          alt="check"
         />
       </Card.Body>
     </Card>

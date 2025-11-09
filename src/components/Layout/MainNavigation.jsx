@@ -17,25 +17,37 @@ const MainNavigation = () => {
   const logoutHandler = () => {
     authCtx.logout();
   };
+
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <Navbar bg="primary" expand="lg" sticky="top" className={classes.header}>
+    <Navbar expand="lg" sticky="top" className={classes.header} variant="dark">
         <Container>
-            <Navbar.Brand className={classes.logo}as={Link} to="/">Kyle Hennessy</Navbar.Brand>
+            <Navbar.Brand className={classes.logo} as={Link} to="/">Kyle Hennessy</Navbar.Brand>
             <Navbar.Toggle aria-controls="mainNavigationNavbar"/>
             <Navbar.Collapse id="mainNavigationNavbar">
                 <Nav className="ms-auto">
                     <Nav.Item>
-                        {location.pathname === '/' && <p id="navHome" className={classes.link} onClick={() => window.scrollTo(0, 0)}>Home</p>}
-                        {location.pathname !== '/' && <Nav.Link id="navHome" className={classes.link} as={Link} to="/" onClick={() => window.scrollTo(0,0)}><BsFillArrowLeftSquareFill/>  Return to Home</Nav.Link>}
+                        {location.pathname === '/' && <p id="navHome" className={classes.link} onClick={scrollToTop}>Home</p>}
+                        {location.pathname !== '/' && <Nav.Link id="navHome" className={classes.link} as={Link} to="/" onClick={scrollToTop}><BsFillArrowLeftSquareFill/>  Return to Home</Nav.Link>}
                     </Nav.Item>
                     {location.pathname === '/' && (
                         <Nav.Item>
-                            <p className={classes.link} onClick={() => window.scrollTo(0,530)}>Projects</p>
+                            <p className={classes.link} onClick={() => scrollToSection('projects')}>Projects</p>
                         </Nav.Item>
                     )}
                      {location.pathname === '/' && (
                         <Nav.Item>
-                            <p className={classes.link} onClick={() => window.scrollTo(0, 1600)}>Skills</p>
+                            <p className={classes.link} onClick={() => scrollToSection('skills')}>Skills</p>
                         </Nav.Item>
                     )}
                     {isLoggedIn && (

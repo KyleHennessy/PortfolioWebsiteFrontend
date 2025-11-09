@@ -31,13 +31,13 @@ const Skills = () => {
   return (
     <section id="skills">
       <Container>
-        <div className="text-center">
-          <MdComputer className="w-10 inline-block mb-4 cap" />
+        <div className="section-title">
+          <MdComputer className="cap" />
 
-          <h1 className="sm:text-4xl text-3xl font-medium title-font mb-4">
+          <h1>
             Skills
           </h1>
-          <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
+          <p>
             These are the skills and technologies that I have learned and have experience developing with. <br/>
             I am always open to expanding my knowledge and adding more skills to my skill-set.
           </p>

@@ -7,7 +7,7 @@ import {
   Row,
   Col,
 } from "react-bootstrap";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AiFillCheckCircle } from "react-icons/ai";
 
 const MessageForm = (props) => {
@@ -71,15 +71,17 @@ const MessageForm = (props) => {
 
   
   };
-  const checkLoaded = document.getElementById("checkLogo");
-  const [fade, setFade] = useState('fadeIn');
-  if(checkLoaded){
-    setInterval(() => {
-      setFade('fadeOut');
-    }, 1000);
-  }
+  useEffect(() => {
+    if (props.created.id) {
+      const timer = setTimeout(() => {
+        // Auto-hide after 3 seconds
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [props.created.id]);
+
   return (
-    <Form onSubmit={submitHandler}>
+    <Form onSubmit={submitHandler} className="message-form">
       <Form.Group className="mb-3" controlId="formName">
         <FloatingLabel controlId="floatingName" label="Name">
           <Form.Control
@@ -88,9 +90,10 @@ const MessageForm = (props) => {
             onChange={nameInputChangeHandler}
             placeholder="Enter name"
             value={enteredName}
+            className={!enteredNameIsValid ? 'is-invalid' : ''}
           />
           {!enteredNameIsValid && (
-            <Alert variant="danger">
+            <Alert variant="danger" className="mt-2">
               Your name must not exceed 100 characters
             </Alert>
           )}
@@ -105,9 +108,10 @@ const MessageForm = (props) => {
             onChange={emailInputChangeHandler}
             placeholder="Enter email"
             value={enteredEmail}
+            className={!enteredEmailIsValid ? 'is-invalid' : ''}
           />
           {!enteredEmailIsValid && (
-            <Alert variant="danger">
+            <Alert variant="danger" className="mt-2">
               Your email address must not exceed 320 characters
             </Alert>
           )}
@@ -123,29 +127,45 @@ const MessageForm = (props) => {
             placeholder="Leave a message here"
             value={enteredMessage}
             style={{ height: "120px" }}
+            className={!enteredMessageIsValid ? 'is-invalid' : ''}
           />
           {!enteredMessageIsValid && (
-            <Alert variant="danger">
+            <Alert variant="danger" className="mt-2">
               Your message must not exceed 500 characters
             </Alert>
           )}
         </FloatingLabel>
       </Form.Group>
       <Row>
-        <Col className="buttonCol">
+        <Col className="d-flex align-items-center gap-3">
           {!props.loading ? (
-            <Button variant="success" type="submit">
+            <Button variant="success" type="submit" size="lg">
               Send Message
             </Button>
           ) : (
-            <Spinner animation="border" role="status" />
+            <>
+              <Spinner animation="border" role="status" variant="primary" />
+              <span className="text-muted">Sending...</span>
+            </>
           )}
-          {props.created.id && (<AiFillCheckCircle id="checkLogo" className={fade} style={{ height: "30px", width: "30px", marginLeft:"20px"}} />)}
+          {props.created.id && (
+            <AiFillCheckCircle 
+              className="fadeIn" 
+              style={{ 
+                height: "30px", 
+                width: "30px", 
+                color: "var(--primary-color)",
+                animation: "scaleIn 0.3s ease-out"
+              }} 
+            />
+          )}
         </Col>
       </Row>
 
       {props.error && (
-        <p className="danger">Something went wrong, please try again</p>
+        <Alert variant="danger" className="mt-3">
+          Something went wrong, please try again
+        </Alert>
       )}
     </Form>
   );

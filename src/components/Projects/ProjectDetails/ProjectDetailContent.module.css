@@ -1,33 +1,128 @@
-.images{
-    background-color: transparent;
-    border-color: transparent;
+.images {
+  background-color: transparent;
+  border-color: transparent;
+  border-radius: 16px;
+  overflow: hidden;
 }
 
-.demoImageColumn{
-    max-width:100%;
+.demoImageColumn {
+  max-width: 100%;
+  margin-bottom: 2rem;
 }
 
-.demoImage{
-    height:auto;
-    width:800px !important;
-    max-width:100%;
-    float:left;
+.demoImage {
+  height: auto;
+  width: 100%;
+  max-width: 800px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  display: block;
+  margin: 0 auto;
 }
 
-.detailImages{
-   
-    max-width:100%;
-    float: right;
+.demoImage:hover {
+  transform: scale(1.02);
 }
 
-.skills{
-    text-align: center;
+.detailImages {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+  margin-bottom: 1rem;
 }
 
-.links{
-    height:50px;
-    width:50px;
-    color: white;
-    margin-right: 10px;
-    margin-bottom: 15px;
+.detailImages:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.skills {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.links {
+  height: 50px;
+  width: 50px;
+  color: white;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  display: inline-block;
+}
+
+.links:hover {
+  transform: translateY(-5px) scale(1.1);
+  background: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+}
+
+.projectContent {
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.projectTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #ffffff 0%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.projectDescription {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.skillsSection {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.skillsTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.skillBadge {
+  display: inline-block;
+  background: rgba(99, 102, 241, 0.2);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.skillBadge:hover {
+  background: rgba(99, 102, 241, 0.3);
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(99, 102, 241, 0.2);
+}
+
+.linksSection {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.2);
+  text-align: center;
 }

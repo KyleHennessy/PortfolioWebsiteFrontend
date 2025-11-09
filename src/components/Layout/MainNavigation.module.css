@@ -1,57 +1,181 @@
 .header {
-    padding: 10px !important;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #1a80f3 ;
-    padding: 0 10%;
-  }
-  
-  .logo {
-    font-size: 2rem !important;
-    color: white !important;
-    font-weight: bold !important;
-  }
-  
-  .header ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: baseline;
-  }
-  
-  .header li {
-    margin-left: 3rem;
-  }
-  
-  .header a {
-    text-decoration: none;
-    font-size: 1.5rem;
-    color: white;
-  }
-  
-  .header a:hover,
-  .header a:active,
-  .header a.active {
-    color: white;
-  }
-  
-  .badge {
-    background-color: #cc2062;
-    color: white;
-    border-radius: 12px;
-    padding: 0 1rem;
-    margin-left: 0.5rem;
-  }
+  padding: 1rem 2rem !important;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(15, 23, 42, 0.8) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
 
-  .linkNav{
-    float:right;
-  }
-  .link{
-    margin-left:30px;
-    font-size: 1.5rem !important;
-    cursor: pointer !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    color: white !important;
-  }
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.5), transparent);
+}
+
+.logo {
+  font-size: 1.75rem !important;
+  color: white !important;
+  font-weight: 800 !important;
+  background: linear-gradient(135deg, #ffffff 0%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
+  text-decoration: none !important;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.5));
+}
+
+.header ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.header li {
+  margin: 0;
+}
+
+.header a {
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.header a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+  transition: width 0.3s ease;
+}
+
+.header a:hover::after,
+.header a:active::after,
+.header a.active::after {
+  width: 100%;
+}
+
+.header a:hover,
+.header a:active,
+.header a.active {
+  color: white;
+  transform: translateY(-2px);
+}
+
+.badge {
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  color: white;
+  border-radius: 12px;
+  padding: 0.25rem 0.75rem;
+  margin-left: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(236, 72, 153, 0.3);
+}
+
+.linkNav {
+  float: right;
+}
+
+.link {
+  margin-left: 1.5rem !important;
+  font-size: 1.1rem !important;
+  cursor: pointer !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  color: var(--text-secondary) !important;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+  background: none;
+  border: none;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+  transition: width 0.3s ease;
+}
+
+.link:hover {
+  color: white !important;
+  transform: translateY(-2px);
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+/* Navbar brand styling */
+.navbar-brand {
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+/* Navbar collapse styling */
+.navbar-collapse {
+  transition: all 0.3s ease;
+}
+
+/* Button styling in navbar */
+.btn-danger {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  border: none;
+  border-radius: 10px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+.btn-danger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.5);
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+}
+
+/* Mobile menu toggle */
+.navbar-toggler {
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  border-radius: 8px;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}

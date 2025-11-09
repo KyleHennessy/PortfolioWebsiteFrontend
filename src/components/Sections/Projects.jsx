@@ -45,10 +45,10 @@ const AllProjects = () => {
   return (
     <section id="projects">
       <Container>
-        <div className="text-center">
-          <AiOutlineHistory className="w-10 inline-block mb-4 cap" />
+        <div className="section-title">
+          <AiOutlineHistory className="cap" />
 
-          <h1 className="sm:text-4xl text-3xl font-medium title-font mb-4">
+          <h1>
             Projects
           </h1>
           <p>

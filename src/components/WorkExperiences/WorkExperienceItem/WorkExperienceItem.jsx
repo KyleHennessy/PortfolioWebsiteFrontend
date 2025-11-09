@@ -10,18 +10,18 @@ const WorkExperienceItem = (props) => {
 
   return (
     <Card className={classes.card}>
-      <Card.Header>{props.title}</Card.Header>
-      <Card.Body className="d-flex flex-column">
-        <ReactMarkdown className="markdown card-text">
+      <Card.Header className={classes.cardHeader}>{props.title}</Card.Header>
+      <Card.Body className={classes.cardBody}>
+        <ReactMarkdown className={`markdown ${classes.markdown}`}>
           {props.description}
         </ReactMarkdown>
-        {props.skillsUsed && (
+        {props.skillsUsed && props.skillsUsed.length > 0 && (
           <div className="mt-auto">
-            <h4>Skills used:</h4>
-            <Row xs={2} md={3} className="g-4">
+            <h4 className={classes.skillsTitle}>Skills used:</h4>
+            <Row xs={2} md={3} className="g-3">
               {props.skillsUsed.map((skill) => (
                 <Col xs key={skill.id}>
-                  <Card>{skill.title}</Card>
+                  <Card className={classes.skillCard}>{skill.title}</Card>
                 </Col>
               ))}
             </Row>
@@ -30,7 +30,7 @@ const WorkExperienceItem = (props) => {
       </Card.Body>
 
       {endDate instanceof Date && (
-        <Card.Footer>
+        <Card.Footer className={classes.cardFooter}>
           {startDate.toLocaleString("default", { month: "long" })}{" "}
           {startDate.getFullYear().toString()} &#8212;{" "}
           {endDate.toLocaleString("default", { month: "long" })}{" "}
@@ -38,7 +38,7 @@ const WorkExperienceItem = (props) => {
         </Card.Footer>
       )}
       {typeof endDate === "string" && (
-        <Card.Footer>
+        <Card.Footer className={classes.cardFooter}>
           {startDate.toLocaleString("default", { month: "long" })}{" "}
           {startDate.getFullYear().toString()} &#8212; {endDate}
         </Card.Footer>
