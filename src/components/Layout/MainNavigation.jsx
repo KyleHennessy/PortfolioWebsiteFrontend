@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import {BsFillArrowLeftSquareFill} from "react-icons/bs";
 
 import AuthContext from "../../store/auth-context";
+import useScrollToSection from "../../hooks/useScrollToSection";
 
 import classes from "./MainNavigation.module.css";
 import { useLocation } from "react-router-dom";
@@ -18,12 +19,7 @@ const MainNavigation = () => {
     authCtx.logout();
   };
 
-  const scrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const scrollToSection = useScrollToSection();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
