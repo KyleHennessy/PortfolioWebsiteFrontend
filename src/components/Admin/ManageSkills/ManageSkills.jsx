@@ -56,7 +56,7 @@ const ManageSkills = () => {
           </Breadcrumb.Item>
           <Breadcrumb.Item active>Manage Skills</Breadcrumb.Item>
         </Breadcrumb>
-        <Button onClick={() => redirectHandler("/create-skill")}>
+        <Button variant="info" onClick={() => redirectHandler("/create-skill")}>
           Create New Skill
         </Button>
 

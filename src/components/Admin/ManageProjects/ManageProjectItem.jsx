@@ -76,7 +76,7 @@ const ManageProjectItem = (props) => {
       </Card.Body>
       <ButtonGroup>
         <Button
-          onClick={() => redirectHandler(`/create-update-project/${props.id}`)}
+          variant="info" onClick={() => redirectHandler(`/create-update-project/${props.id}`)}
         >
           Update
         </Button>

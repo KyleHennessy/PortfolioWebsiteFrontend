@@ -1,6 +1,7 @@
 import { Alert, Col, Container, Row } from "react-bootstrap";
 import WorkExperienceItem from "./WorkExperienceItem/WorkExperienceItem";
 import PlaceholderCard from "../UI/PlaceholderCard";
+import Error from "../UI/Error";
 
 const WorkExperienceList = (props) => {
   let workExperienceList = (
@@ -35,8 +36,8 @@ const WorkExperienceList = (props) => {
 
   let content = workExperienceList;
 
-  if (props.error) {
-    <h2>Something went wrong</h2>;
+  if (props.error || props.workExperiences) {
+    content = <Error></Error>
   }
 
   if (props.loading) {

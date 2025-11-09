@@ -69,7 +69,7 @@ const ManageProjects = () => {
           </Breadcrumb.Item>
           <Breadcrumb.Item active>Manage Projects</Breadcrumb.Item>
         </Breadcrumb>
-        <Button onClick={() => redirectHandler("/create-update-project")}>
+        <Button variant="info" onClick={() => redirectHandler("/create-update-project")}>
           Create New Project
         </Button>
 

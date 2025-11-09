@@ -19,10 +19,10 @@ const ManageList = () => {
         <h3>Manage Content</h3>
         <Row className="g-4">
           <ButtonGroup vertical>
-            <Button onClick={() => redirectHandler("/manage-projects")}>Manage Projects</Button>
-            <Button onClick={() => redirectHandler("/manage-skills")}>Manage Skills</Button>
-            <Button onClick={() => redirectHandler("/manage-work-experiences")}>Manage Work Experiences</Button>
-            <Button onClick={() => redirectHandler("/manage-messages")}>Manage Messages</Button>
+            <Button variant="info" onClick={() => redirectHandler("/manage-projects")}>Manage Projects</Button>
+            <Button variant="info" onClick={() => redirectHandler("/manage-skills")}>Manage Skills</Button>
+            <Button variant="info" onClick={() => redirectHandler("/manage-work-experiences")}>Manage Work Experiences</Button>
+            <Button variant="info" onClick={() => redirectHandler("/manage-messages")}>Manage Messages</Button>
           </ButtonGroup>
         </Row>
       </Container>

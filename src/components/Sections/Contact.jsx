@@ -34,10 +34,10 @@ const Contact = () => {
               <div className={classes.infoSection}>
                 <h2 className={classes.infoTitle}>Address</h2>
                 <p className={classes.infoText}>
-                  Graney <br />
-                  Baltinglass
-                  <br />
-                  Co.Wicklow
+                  12 McQuillen Street <br />
+                  Tully<br />
+                  Queensland<br/>
+                  Australia
                 </p>
               </div>
               <div className={classes.infoSection}>
@@ -46,7 +46,7 @@ const Contact = () => {
                   kyle-hennessy@hotmail.com
                 </a>
                 <h2 className={classes.infoTitle}>Phone</h2>
-                <p className={classes.infoText}>087-419-8486</p>
+                <p className={classes.infoText}>049-3303-543</p>
                 <h2 className={classes.infoTitle}>Socials</h2>
                 <div className={classes.socialLinks}>
                   <a href="https://www.linkedin.com/in/kyle-hennessy-itcarlow/">

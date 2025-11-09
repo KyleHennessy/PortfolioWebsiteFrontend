@@ -1,6 +1,7 @@
 import { Col, Container, Row, Alert } from "react-bootstrap";
 import PlaceholderCard from "../UI/PlaceholderCard";
 import SkillItem from "./SkillItem/SkillItem";
+import Error from "../UI/Error";
 
 const SkillsList = (props) => {
   let skillList = <Alert variant='warning'>No skills could be found at this time. Please try again later</Alert>
@@ -19,8 +20,8 @@ const SkillsList = (props) => {
 
   let content = skillList;
 
-  if(props.error){
-    <h2>Something went wrong</h2>
+  if(props.error || props.skills){
+    content = <Error></Error>
   }
 
   if(props.loading){

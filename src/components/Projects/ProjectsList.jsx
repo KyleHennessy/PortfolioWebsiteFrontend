@@ -1,6 +1,7 @@
 import { Col, Container, Row, Alert } from "react-bootstrap";
 import PlaceholderCard from "../UI/PlaceholderCard";
 import ProjectItem from "./ProjectItem/ProjectItem";
+import Error from "../UI/Error";
 
 const ProjectsList = (props) => {
   let projectList = <Alert variant='warning'>No projects could be found at this time. Please try again later</Alert>;
@@ -26,8 +27,8 @@ const ProjectsList = (props) => {
 
   let content = projectList;
 
-  if (props.error) {
-    <h2>Something went wrong</h2>;
+  if (props.error || props.projects) {
+    content = <Error></Error>
   }
 
   if (props.loading) {
