@@ -27,7 +27,7 @@ const ProjectsList = (props) => {
 
   let content = projectList;
 
-  if (props.error || props.projects) {
+  if (props.error || props.projects.length == 0) {
     content = <Error></Error>
   }
 

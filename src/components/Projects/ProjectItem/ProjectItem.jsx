@@ -44,11 +44,9 @@ const ProjectItem = (props) => {
         </div>
         <Card.Body className={classes.cardBody}>
           <Card.Title className={classes.cardTitle}>{props.title}</Card.Title>
-          <Card.Text className={classes.cardText}>
-            <ReactMarkdown className="markdown">
-              {props.summary}
-            </ReactMarkdown>
-          </Card.Text>
+          <ReactMarkdown className="markdown">
+            {props.summary}
+          </ReactMarkdown>
         </Card.Body>
         <Card.Footer className={classes.cardFooter}>
           <Button className={classes.learnMoreBtn}>Learn more</Button>

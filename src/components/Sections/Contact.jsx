@@ -49,7 +49,7 @@ const Contact = () => {
                 <p className={classes.infoText}>049-3303-543</p>
                 <h2 className={classes.infoTitle}>Socials</h2>
                 <div className={classes.socialLinks}>
-                  <a href="https://www.linkedin.com/in/kyle-hennessy-itcarlow/">
+                  <a href="https://www.linkedin.com/in/kylehennessy/">
                     <OverlayTrigger
                       trigger={["hover", "focus"]}
                       placement="bottom"

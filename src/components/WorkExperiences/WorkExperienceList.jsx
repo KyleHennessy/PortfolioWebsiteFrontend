@@ -35,8 +35,9 @@ const WorkExperienceList = (props) => {
   }
 
   let content = workExperienceList;
+  console.log(props)
 
-  if (props.error || props.workExperiences) {
+  if (props.error || props.workExperiences.length == 0) {
     content = <Error></Error>
   }
 

@@ -20,7 +20,7 @@ const SkillsList = (props) => {
 
   let content = skillList;
 
-  if(props.error || props.skills){
+  if(props.error || props.skills.length == 0){
     content = <Error></Error>
   }
 

@@ -58,9 +58,7 @@ const ProjectDetailContent = (props) => {
 
       <Card className={classes.projectContent}>
         <Card.Body>
-          <Card.Text className={classes.projectDescription}>
-            <ReactMarkdown className="markdown">{props.description}</ReactMarkdown>
-          </Card.Text>
+          <ReactMarkdown className="markdown">{props.description}</ReactMarkdown>
           {props.sourceCodeUrl && (
             <div className={classes.linksSection}>
               <Card.Text className="mb-3">
