@@ -46,8 +46,7 @@ const WorkExperiences = () => {
             Work Experience
           </h1>
           <p>
-            Here are all of my previous and current work experiences as a Software
-            Developer in the industry!
+            My previous experiences as a Software Engineer in the industry!
           </p>
         </div>
         <WorkExperienceList

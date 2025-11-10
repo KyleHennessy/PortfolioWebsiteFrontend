@@ -38,7 +38,7 @@ const Skills = () => {
             Skills
           </h1>
           <p>
-            These are the skills and technologies that I have learned and have experience developing with. <br/>
+            The skills and technologies that I have learned and have experience developing with. <br/>
             I am always open to expanding my knowledge and adding more skills to my skill-set.
           </p>
         </div>
