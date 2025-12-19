@@ -34,9 +34,9 @@ const Contact = () => {
               <div className={classes.infoSection}>
                 <h2 className={classes.infoTitle}>Address</h2>
                 <p className={classes.infoText}>
-                  12 McQuillen Street <br />
-                  Tully<br />
-                  Queensland<br/>
+                  Yarraville <br />
+                  Melbourne <br />
+                  Victoria <br/>
                   Australia
                 </p>
               </div>
