@@ -20,6 +20,7 @@ import { useHistory } from "react-router-dom";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import apiUrlObject from "../../../../api.json";
 import placeholderImage from "../../../../assets/placeholder.png";
+import { IoMdOpen } from "react-icons/io";
 
 const CreateUpdateProjectForm = (props) => {
   const apiUrl = apiUrlObject.apiUrl;
@@ -38,6 +39,7 @@ const CreateUpdateProjectForm = (props) => {
   const [enteredDetailImage1, setInputDetailImage1] = useState("");
   const [enteredDetailImage2, setInputDetailImage2] = useState("");
   const [enteredSourceCode, setInputSourceCode] = useState("");
+  const [enteredLiveSite, setInputLiveSite] = useState("");
   const [enteredSkills, setInputSkills] = useState([]);
 
   useEffect(() => {
@@ -51,6 +53,8 @@ const CreateUpdateProjectForm = (props) => {
       setInputDetailImage1(props.loadedProject.detailImagesUrl[0]);
       setInputDetailImage2(props.loadedProject.detailImagesUrl[1]);
       setInputSourceCode(props.loadedProject.sourceCodeUrl);
+      setInputLiveSite(props.loadedProject.liveSiteUrl);
+      
       //TODO: Make this work
       // props.loadedProject.skillsUsed.map((skill) => {
       //   setInputSkills((enteredSkills) => [...enteredSkills, skill.title]);
@@ -100,6 +104,9 @@ const CreateUpdateProjectForm = (props) => {
   const sourceCodeInputChangeHandler = (event) => {
     setInputSourceCode(event.target.value);
   };
+  const liveSiteInputChangeHandler = (event) => {
+    setInputLiveSite(event.target.value);
+  };
   const skillsInputChangeHandler = (event) => {
     const skillId = event.target.value;
     const selectedSkill = loadedSkills.find(s => s.id === skillId);
@@ -131,6 +138,7 @@ const CreateUpdateProjectForm = (props) => {
       detailImage1: enteredDetailImage1,
       detailImage2: enteredDetailImage2,
       sourceCode: enteredSourceCode,
+      liveSiteUrl: enteredLiveSite,
       skills: enteredSkills,
     };
     props.onSubmitProject(projectDetails);
@@ -143,6 +151,7 @@ const CreateUpdateProjectForm = (props) => {
     setInputDetailImage1("");
     setInputDetailImage2("");
     setInputSourceCode("");
+    setInputLiveSite("");
     setInputSkills([]);
     history.replace("/manage-projects");
   };
@@ -280,6 +289,21 @@ const CreateUpdateProjectForm = (props) => {
                       onChange={sourceCodeInputChangeHandler}
                       type="url"
                       placeholder="Enter Source Code Url"
+                    />
+                  </FloatingLabel>
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="projectLiveSiteUrl">
+                  <FloatingLabel
+                    controlId="floatingLiveSiteUrl"
+                    label="Live Site"
+                  >
+                    <Form.Control
+                      value={enteredLiveSite}
+                      required
+                      onChange={liveSiteInputChangeHandler}
+                      type="url"
+                      placeholder="Enter Live Site Url"
                     />
                   </FloatingLabel>
                 </Form.Group>
@@ -426,6 +450,18 @@ const CreateUpdateProjectForm = (props) => {
                     alt="Visit my GitHub!"
                     className={classes.links}
                   />
+                </OverlayTrigger>
+              </a>
+            )}
+            {enteredLiveSite && (
+              <a href={enteredLiveSite}>
+                <OverlayTrigger
+                  trigger={["hover", "focus"]}
+                  placement="bottom"
+                  delay={{ show: 10, hide: 0 }}
+                  overlay={<Tooltip>Open Site</Tooltip>}
+                >
+                  <IoMdOpen className={classes.links}/>
                 </OverlayTrigger>
               </a>
             )}

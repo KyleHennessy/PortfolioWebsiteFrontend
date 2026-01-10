@@ -26,6 +26,7 @@ const ProjectDetails = () => {
         demoUrl: projectObj.demoUrl,
         detailImagesUrl: projectObj.detailImagesUrl,
         sourceCodeUrl: projectObj.sourceCodeUrl,
+        liveSiteUrl: projectObj.liveSiteUrl,
         skillsUsed: projectObj.skillsUsed,
       };
 
@@ -53,16 +54,15 @@ const ProjectDetails = () => {
       <Container>
       {isLoading && (<PlaceholderCard isSkill={false}/>)}
       {!error && !isLoading && (
-        
           <ProjectDetailContent
             title={projectDetails.title}
             description={projectDetails.description}
             demoUrl={projectDetails.demoUrl}
             detailImagesUrl={projectDetails.detailImagesUrl}
             sourceCodeUrl={projectDetails.sourceCodeUrl}
+            liveSiteUrl={projectDetails.liveSiteUrl}
             skillsUsed={projectDetails.skillsUsed}
           />
-        
       )}
       </Container>
     </section>

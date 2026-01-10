@@ -35,6 +35,7 @@ const CreateUpdateProject = () => {
           demoUrl: projectObj.demoUrl,
           detailImagesUrl: projectObj.detailImagesUrl,
           sourceCodeUrl: projectObj.sourceCodeUrl,
+          liveSiteUrl: projectObj.liveSiteUrl,
           skillsUsed: projectObj.skillsUsed,
         };
 
@@ -67,6 +68,7 @@ const CreateUpdateProject = () => {
         demoUrl: project.demo,
         detailImagesUrl: detailImages,
         sourceCodeUrl: project.sourceCode,
+        liveSiteUrl: project.liveSiteUrl,
         skillsUsed: project.skills,
       };
     } else {
@@ -81,6 +83,7 @@ const CreateUpdateProject = () => {
         demoUrl: project.demo,
         detailImagesUrl: detailImages,
         sourceCodeUrl: project.sourceCode,
+        liveSiteUrl: project.liveSiteUrl,
         skillsUsed: project.skills,
       };
     }

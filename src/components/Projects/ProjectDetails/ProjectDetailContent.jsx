@@ -13,6 +13,8 @@ import classes from "./ProjectDetailContent.module.css";
 
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
+import { IoMdOpen } from "react-icons/io";
+
 const ProjectDetailContent = (props) => {
   return (
     <div>
@@ -78,6 +80,18 @@ const ProjectDetailContent = (props) => {
                   />
                 </OverlayTrigger>
               </a>
+              {props.liveSiteUrl && (
+                <a href={props.liveSiteUrl} target="_blank" rel="noopener noreferrer">
+                  <OverlayTrigger
+                    trigger={["hover", "focus"]}
+                    placement="bottom"
+                    delay={{ show: 10, hide: 0 }}
+                    overlay={<Tooltip>Open Project</Tooltip>}
+                  >
+                    <IoMdOpen className={classes.links}/>
+                  </OverlayTrigger>
+                </a>
+              )}
             </div>
           )}
           {props.skillsUsed && props.skillsUsed.length > 0 && (
